@@ -2,57 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* WINGS Security Design System - Professional security with tech innovation
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
+    /* WINGS Brand Colors */
+    --wings-green: 141 95% 42%;     /* #05D04B */
+    --wings-green-light: 141 85% 55%;
+    --wings-green-dark: 141 100% 35%;
+    --wings-black: 0 0% 8%;         /* Deep black */
+    --wings-grey: 0 0% 45%;         /* Professional grey */
+    --wings-grey-light: 0 0% 85%;
+    --wings-grey-dark: 0 0% 25%;
+    
+    /* Background & Surface */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background-secondary: 0 0% 98%;
+    --background-dark: 0 0% 8%;
+    --foreground: 0 0% 8%;
+    --foreground-light: 0 0% 45%;
 
+    /* Card & Surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
+    --card-dark: 0 0% 12%;
+    --card-dark-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive Elements */
+    --primary: 141 95% 42%;          /* WINGS Green */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 141 85% 38%;
+    
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 8%;
+    --secondary-hover: 0 0% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Accent & Highlights */
+    --accent: 141 85% 55%;
+    --accent-foreground: 0 0% 8%;
+    
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Interactive States */
+    --border: 0 0% 90%;
+    --border-dark: 0 0% 20%;
+    --input: 0 0% 95%;
+    --ring: 141 95% 42%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Status Colors */
+    --success: 141 95% 42%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(141 95% 42%), hsl(141 85% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 25px hsl(0 0% 0% / 0.15);
+    --shadow-xl: 0 20px 40px hsl(0 0% 0% / 0.2);
+    --shadow-green: 0 8px 24px hsl(141 95% 42% / 0.3);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -100,6 +124,84 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* WINGS Button Variants */
+  .btn-wings-primary {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))] 
+           shadow-[var(--shadow-green)] transition-[var(--transition-smooth)]
+           px-8 py-4 rounded-[var(--radius)] font-semibold text-lg
+           transform hover:scale-105 hover:shadow-xl;
+  }
+  
+  .btn-wings-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-[hsl(var(--secondary-hover))]
+           border border-border shadow-[var(--shadow-md)] transition-[var(--transition-smooth)]
+           px-8 py-4 rounded-[var(--radius)] font-semibold text-lg
+           transform hover:scale-105;
+  }
+  
+  .btn-wings-ghost {
+    @apply text-foreground hover:bg-muted transition-[var(--transition-smooth)]
+           px-6 py-3 rounded-[var(--radius)] font-medium
+           transform hover:scale-105;
+  }
+
+  /* WINGS Card Variants */
+  .card-wings {
+    @apply bg-card text-card-foreground shadow-[var(--shadow-lg)] 
+           rounded-[var(--radius)] transition-[var(--transition-smooth)]
+           hover:shadow-xl hover:scale-105 border border-border;
+  }
+  
+  .card-wings-dark {
+    @apply bg-[hsl(var(--card-dark))] text-[hsl(var(--card-dark-foreground))] 
+           shadow-[var(--shadow-xl)] rounded-[var(--radius)]
+           transition-[var(--transition-smooth)] hover:shadow-2xl;
+  }
+
+  /* WINGS Animations */
+  .wings-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .wings-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .wings-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  /* WINGS Gradient Text */
+  .text-wings-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* WINGS Hover Effects */
+  .wings-hover-lift {
+    @apply transition-[var(--transition-smooth)] hover:scale-105 hover:shadow-[var(--shadow-lg)];
+  }
+  
+  .wings-hover-glow {
+    @apply transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-green)];
   }
 }
