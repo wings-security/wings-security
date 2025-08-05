@@ -171,21 +171,48 @@ All colors MUST be HSL.
 
   /* WINGS Animations */
   .wings-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
+    animation: wings-fade-in 0.8s ease-out forwards;
   }
   
   .wings-slide-up {
-    animation: slide-up 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(50px);
+    animation: wings-slide-up 0.6s ease-out forwards;
   }
   
   .wings-scale-in {
-    animation: scale-in 0.5s ease-out forwards;
-    opacity: 0;
-    transform: scale(0.9);
+    animation: wings-scale-in 0.5s ease-out forwards;
+  }
+  
+  @keyframes wings-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes wings-slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes wings-scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   /* WINGS Gradient Text */
