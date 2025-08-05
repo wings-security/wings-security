@@ -36,8 +36,8 @@ const AboutSection = () => {
 
   const stats = [
     { number: "24/7", label: "Monitoring", icon: Shield },
-    { number: "100%", label: "Licensed", icon: Award },
-    { number: "Dublin", label: "Coverage", icon: Target },
+    { number: "100%", label: "Insured", icon: Award },
+    { number: "Ireland", label: "Coverage", icon: Target },
     { number: "Professional", label: "Service", icon: Users }
   ];
 
@@ -56,8 +56,8 @@ const AboutSection = () => {
     },
     {
       icon: Heart,
-      title: "Community Focus",
-      description: "Committed to protecting and serving the Dublin business community.",
+      title: "Professionalism",
+      description: "Committed to delivering the highest standards of security services across Ireland.",
       color: "text-wings-grey-dark"
     },
     {
@@ -74,22 +74,22 @@ const AboutSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className={`text-center mb-16 space-y-4 ${isVisible ? 'wings-fade-in' : 'opacity-0'}`}>
-            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
+            <div className="inline-flex items-center space-x-2 glass-card border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
               <Users className="h-4 w-4" />
               <span>About WINGS</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-wings-black">
               Professional Security
               <span className="block text-wings-gradient bg-gradient-primary bg-clip-text text-transparent">
                 You Can Trust
               </span>
             </h2>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              WINGS Security Ltd. represents a new standard in Dublin's security industry, 
-              combining experienced professionals with innovative technology to deliver 
-              comprehensive protection solutions.
+            <p className="text-xl text-wings-grey max-w-3xl mx-auto">
+              At WINGS Security Ltd., we're committed to delivering professional, insured security services across Ireland. 
+              Built on values of trust, reliability, and professionalism, our mission is to give clients peace of mind 
+              through tailored static guarding and event security solutions.
             </p>
           </div>
 
@@ -98,28 +98,28 @@ const AboutSection = () => {
             {/* Left Column - Story */}
             <div className={`space-y-6 ${isVisible ? 'wings-slide-up' : 'opacity-0'}`}>
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">Our Mission</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Founded with a vision to revolutionize security services in Dublin, WINGS Security Ltd. 
-                  bridges the gap between traditional security methods and modern technological solutions. 
-                  Our commitment to excellence drives us to continuously evolve and adapt to meet the 
-                  changing security needs of our community.
+                <h3 className="text-2xl font-display font-bold text-wings-black">Our Mission</h3>
+                <p className="text-wings-grey leading-relaxed">
+                  At WINGS Security Ltd., we're committed to delivering professional, insured security services across Ireland. 
+                  Built on values of trust, reliability, and professionalism, our mission is to give clients peace of mind 
+                  through tailored static guarding and event security solutions. We're currently licensed for static services 
+                  (application in progress), and we're developing IRIS — our upcoming remote guarding platform.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">Why Choose WINGS?</h3>
+                <h3 className="text-2xl font-display font-bold text-wings-black">Why Choose WINGS?</h3>
                 <div className="space-y-3">
                   {[
-                    "Licensing in progress with full compliance planned",
+                    "Fully insured security services across Ireland",
                     "Experienced security professionals from diverse backgrounds",
                     "Technology-enhanced traditional security methods", 
-                    "Rapid response capabilities across Dublin",
+                    "Rapid response capabilities nationwide",
                     "Customized security solutions for every client"
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-wings-grey">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -133,7 +133,7 @@ const AboutSection = () => {
                 {stats.map((stat, index) => (
                   <Card 
                     key={stat.label}
-                    className={`card-wings text-center p-6 ${
+                    className={`glass-card text-center p-6 border border-white/20 ${
                       isVisible ? 'wings-fade-in' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${index * 100}ms` }}
@@ -143,8 +143,8 @@ const AboutSection = () => {
                         <stat.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-foreground">{stat.number}</div>
-                        <div className="text-sm text-muted-foreground">{stat.label}</div>
+                        <div className="text-2xl font-display font-bold text-wings-black">{stat.number}</div>
+                        <div className="text-sm text-wings-grey">{stat.label}</div>
                       </div>
                     </CardContent>
                   </Card>
@@ -152,21 +152,21 @@ const AboutSection = () => {
               </div>
 
               {/* Technology Preview */}
-              <Card className="card-wings overflow-hidden">
+              <Card className="glass-card overflow-hidden border border-white/20">
                 <CardContent className="p-6">
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
                       <Zap className="h-6 w-6 text-primary" />
-                      <h4 className="text-lg font-semibold text-foreground">Technology Integration</h4>
+                      <h4 className="text-lg font-display font-semibold text-wings-black">IRIS Development</h4>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Our upcoming IRIS remote guarding system represents the future of security monitoring, 
-                      combining AI-powered detection with human expertise for unparalleled protection.
+                    <p className="text-wings-grey text-sm">
+                      Our upcoming IRIS remote guarding platform represents the future of security monitoring, 
+                      currently in development for enhanced protection capabilities.
                     </p>
                     <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                       <div className="h-full bg-gradient-primary rounded-full w-3/4 animate-pulse"></div>
                     </div>
-                    <div className="text-xs text-muted-foreground">Development Progress</div>
+                    <div className="text-xs text-wings-grey">Development Progress</div>
                   </div>
                 </CardContent>
               </Card>
@@ -175,12 +175,12 @@ const AboutSection = () => {
 
           {/* Values Section */}
           <div className={`${isVisible ? 'wings-fade-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
-            <h3 className="text-2xl font-bold text-foreground text-center mb-8">Our Core Values</h3>
+            <h3 className="text-2xl font-display font-bold text-wings-black text-center mb-8">Our Core Values</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => (
                 <Card 
                   key={value.title}
-                  className={`card-wings text-center group ${
+                  className={`glass-card text-center group border border-white/20 ${
                     isVisible ? 'wings-scale-in' : 'opacity-0'
                   }`}
                   style={{ animationDelay: `${500 + index * 100}ms` }}
@@ -190,8 +190,8 @@ const AboutSection = () => {
                       <value.icon className={`h-8 w-8 ${value.color} group-hover:scale-110 transition-transform`} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-foreground mb-2">{value.title}</h4>
-                      <p className="text-sm text-muted-foreground">{value.description}</p>
+                      <h4 className="text-lg font-display font-semibold text-wings-black mb-2">{value.title}</h4>
+                      <p className="text-sm text-wings-grey">{value.description}</p>
                     </div>
                   </CardContent>
                 </Card>

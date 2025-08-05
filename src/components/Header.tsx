@@ -33,7 +33,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-background/95 backdrop-blur-md shadow-wings-lg border-b border-border' 
+          ? 'glass-nav shadow-wings-glass' 
           : 'bg-transparent'
       }`}
     >
@@ -46,8 +46,8 @@ const Header = () => {
               <div className="absolute -top-1 -right-1 h-4 w-4 bg-primary rounded-full animate-float"></div>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-foreground tracking-tight">WINGS</span>
-              <span className="text-xs text-muted-foreground font-medium tracking-wider">SECURITY LTD</span>
+              <span className="text-2xl font-display font-bold text-wings-black tracking-tight">WINGS</span>
+              <span className="text-xs text-wings-grey font-medium tracking-wider">SECURITY LTD</span>
             </div>
           </div>
 
@@ -66,12 +66,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="btn-wings-primary"
-            >
-              Free Quote
-            </Button>
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                className="btn-wings-primary"
+              >
+                Request a Free Quote
+              </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,7 +105,7 @@ const Header = () => {
                   onClick={() => scrollToSection('contact')}
                   className="btn-wings-primary w-full"
                 >
-                  Free Quote
+                  Request a Free Quote
                 </Button>
               </div>
             </div>

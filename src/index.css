@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* WINGS Security Design System - Professional security with tech innovation
+/* WINGS Security Design System - Glassmorphism & Professional Security
+Primary: #05D04B, Secondary: #000000, Text: #707070, Background: #ffffff
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* WINGS Brand Colors */
-    --wings-green: 141 95% 42%;     /* #05D04B */
+    /* WINGS Brand Colors - Exact Brand Specification */
+    --wings-green: 141 95% 42%;     /* #05D04B - Primary brand color */
     --wings-green-light: 141 85% 55%;
     --wings-green-dark: 141 100% 35%;
-    --wings-black: 0 0% 8%;         /* Deep black */
-    --wings-grey: 0 0% 45%;         /* Professional grey */
-    --wings-grey-light: 0 0% 85%;
-    --wings-grey-dark: 0 0% 25%;
+    --wings-black: 0 0% 0%;         /* #000000 - Pure black for headings */
+    --wings-grey: 0 0% 44%;         /* #707070 - Text grey */
+    --wings-grey-light: 0 0% 95%;
+    --wings-grey-dark: 0 0% 15%;
+    --wings-white: 0 0% 100%;       /* #ffffff - Pure white */
     
     /* Background & Surface */
     --background: 0 0% 100%;
@@ -60,17 +62,21 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Gradients */
+    /* Glassmorphism Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(141 95% 42%), hsl(141 85% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 15%) 50%, hsl(0 0% 8%) 100%);
+    --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    --gradient-glass-dark: linear-gradient(145deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
     
-    /* Shadows */
-    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 25px hsl(0 0% 0% / 0.15);
-    --shadow-xl: 0 20px 40px hsl(0 0% 0% / 0.2);
-    --shadow-green: 0 8px 24px hsl(141 95% 42% / 0.3);
+    /* Glassmorphism Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --shadow-green: 0 8px 24px rgba(5, 208, 75, 0.3);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-glass-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
 
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,8 +130,12 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-body antialiased;
     font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
   }
   
   /* Smooth scrolling */
@@ -230,5 +240,25 @@ All colors MUST be HSL.
   
   .wings-hover-glow {
     @apply transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-green)];
+  }
+  
+  /* Glassmorphism Components */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-hero {
+    background: var(--gradient-glass-dark);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }

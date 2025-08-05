@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, CheckCircle, Eye } from 'lucide-react';
+import securityTeamImage from '@/assets/security-team.jpg';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,11 +20,21 @@ const HeroSection = () => {
   const features = [
     { icon: Shield, text: "Licensed Security Professionals" },
     { icon: Eye, text: "24/7 Monitoring & Response" },
-    { icon: CheckCircle, text: "Trusted by Dublin Businesses" }
+    { icon: CheckCircle, text: "Trusted by Ireland Businesses" }
   ];
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+      {/* Hero Background Image with Glassmorphism Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src={securityTeamImage} 
+          alt="Professional WINGS Security team" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-hero opacity-80"></div>
+      </div>
+      
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-float"></div>
@@ -41,14 +52,14 @@ const HeroSection = () => {
             {/* Left Column - Content */}
             <div className={`space-y-8 ${isVisible ? 'wings-fade-in' : 'opacity-0'}`}>
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
+              <div className="inline-flex items-center space-x-2 glass-card rounded-full px-4 py-2 text-sm font-medium text-white border-white/20">
                 <Shield className="h-4 w-4" />
-                <span>Licensing in Progress</span>
+                <span>Licensing in progress</span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-4">
-                <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
+                <h1 className="text-5xl lg:text-7xl font-display font-bold text-white leading-tight">
                   You're covered
                   <span className="block text-wings-gradient bg-gradient-primary bg-clip-text text-transparent">
                     while our guards
@@ -57,7 +68,7 @@ const HeroSection = () => {
                 </h1>
                 
                 <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl">
-                  Professional security services across Dublin with cutting-edge technology 
+                  Professional insured security services across Ireland with cutting-edge technology 
                   and experienced personnel protecting what matters most to you.
                 </p>
               </div>
@@ -84,7 +95,7 @@ const HeroSection = () => {
                   onClick={() => scrollToSection('contact')}
                   className="btn-wings-primary group"
                 >
-                  Request Free Quote
+                  Request a Free Quote
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
                 
@@ -93,44 +104,44 @@ const HeroSection = () => {
                   variant="outline"
                   className="btn-wings-secondary bg-white/10 border-white/20 text-white hover:bg-white/20"
                 >
-                  Our Services
+                  Get a Consultation
                 </Button>
               </div>
             </div>
 
-            {/* Right Column - Visual */}
+            {/* Right Column - Glassmorphism Visual */}
             <div className={`relative ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
               <div className="relative">
-                {/* Main Security Visual */}
-                <div className="relative w-full h-96 lg:h-[500px] bg-gradient-card rounded-3xl overflow-hidden shadow-wings-xl">
+                {/* Main Security Visual with Glassmorphism */}
+                <div className="relative w-full h-96 lg:h-[500px] glass-card rounded-3xl overflow-hidden shadow-wings-glass-lg">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5"></div>
                   
-                  {/* Floating Cards */}
-                  <div className="absolute top-8 left-8 bg-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
+                  {/* Floating Glass Cards */}
+                  <div className="absolute top-8 left-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
                     <div className="flex items-center space-x-3">
                       <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                      <span className="text-sm font-medium">System Online</span>
+                      <span className="text-sm font-medium text-white">System Online</span>
                     </div>
                   </div>
                   
-                  <div className="absolute top-8 right-8 bg-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
+                  <div className="absolute top-8 right-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
                     <div className="flex items-center space-x-3">
                       <Eye className="h-5 w-5 text-primary" />
-                      <span className="text-sm font-medium">24/7 Active</span>
+                      <span className="text-sm font-medium text-white">24/7 Active</span>
                     </div>
                   </div>
                   
-                  <div className="absolute bottom-8 left-8 bg-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
+                  <div className="absolute bottom-8 left-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
                     <div className="flex items-center space-x-3">
                       <Shield className="h-5 w-5 text-primary" />
-                      <span className="text-sm font-medium">Dublin Coverage</span>
+                      <span className="text-sm font-medium text-white">Ireland Coverage</span>
                     </div>
                   </div>
 
                   {/* Central Security Icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative">
-                      <div className="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/30 animate-pulse-glow">
+                      <div className="w-32 h-32 glass-card rounded-full flex items-center justify-center border border-primary/30 animate-pulse-glow">
                         <Shield className="h-16 w-16 text-primary" />
                       </div>
                       

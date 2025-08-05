@@ -87,14 +87,14 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Call Us",
-      detail: "Coming Soon",
+      detail: "+353 899899484",
       description: "Speak directly with our security experts"
     },
     {
       icon: MapPin,
       title: "Location",
-      detail: "Dublin, Ireland",
-      description: "Serving Dublin and surrounding areas"
+      detail: "Headquartered in Dublin",
+      description: "Operating nationwide across Ireland"
     },
     {
       icon: Clock,
@@ -106,7 +106,7 @@ const ContactSection = () => {
 
   const services = [
     "Static Guarding",
-    "Event Security", 
+    "Event Stewarding and Static Event Security", 
     "IRIS Remote Guarding (Coming Soon)",
     "Security Consultation",
     "Risk Assessment",
@@ -119,19 +119,19 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className={`text-center mb-16 space-y-4 ${isVisible ? 'wings-fade-in' : 'opacity-0'}`}>
-            <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
+            <div className="inline-flex items-center space-x-2 glass-card border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
               <MessageSquare className="h-4 w-4" />
               <span>Get In Touch</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold text-wings-black">
               Request Your
               <span className="block text-wings-gradient bg-gradient-primary bg-clip-text text-transparent">
                 Free Security Quote
               </span>
             </h2>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-wings-grey max-w-3xl mx-auto">
               Ready to enhance your security? Get a personalized quote tailored to your specific needs. 
               Our team of experts will provide comprehensive recommendations within 24 hours.
             </p>
@@ -141,7 +141,7 @@ const ContactSection = () => {
             {/* Contact Info - Left Column */}
             <div className="lg:col-span-2 space-y-8">
               <div className={`${isVisible ? 'wings-slide-up' : 'opacity-0'}`}>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-display font-bold text-wings-black mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div 
@@ -151,13 +151,13 @@ const ContactSection = () => {
                       }`}
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 glass-card rounded-full flex items-center justify-center flex-shrink-0">
                         <info.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground">{info.title}</h4>
+                        <h4 className="font-display font-semibold text-wings-black">{info.title}</h4>
                         <p className="text-lg text-primary font-medium">{info.detail}</p>
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
+                        <p className="text-sm text-wings-grey">{info.description}</p>
                       </div>
                     </div>
                   ))}
@@ -165,15 +165,15 @@ const ContactSection = () => {
               </div>
 
               {/* Security Badge */}
-              <Card className={`card-wings ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '300ms' }}>
+              <Card className={`glass-card border border-white/20 ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '300ms' }}>
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                       <Shield className="h-8 w-8 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground">Licensed & Insured</h4>
-                      <p className="text-sm text-muted-foreground">Licensing in progress - Full compliance guaranteed</p>
+                      <h4 className="font-display font-semibold text-wings-black">Licensed & Insured</h4>
+                      <p className="text-sm text-wings-grey">Application in progress - Full compliance guaranteed</p>
                     </div>
                   </div>
                 </CardContent>
@@ -182,16 +182,16 @@ const ContactSection = () => {
 
             {/* Contact Form - Right Column */}
             <div className="lg:col-span-3">
-              <Card className={`card-wings ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+              <Card className={`glass-card border border-white/20 ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-foreground">Get Your Free Quote</CardTitle>
+                  <CardTitle className="text-xl font-display font-bold text-wings-black">Get Your Free Quote</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Personal Information */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-sm font-medium text-foreground">
+                        <Label htmlFor="name" className="text-sm font-medium text-wings-black">
                           Full Name *
                         </Label>
                         <Input
@@ -205,7 +205,7 @@ const ContactSection = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email" className="text-sm font-medium text-foreground">
+                        <Label htmlFor="email" className="text-sm font-medium text-wings-black">
                           Email Address *
                         </Label>
                         <Input
@@ -223,7 +223,7 @@ const ContactSection = () => {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="company" className="text-sm font-medium text-foreground">
+                        <Label htmlFor="company" className="text-sm font-medium text-wings-black">
                           Company/Organization
                         </Label>
                         <Input
@@ -236,7 +236,7 @@ const ContactSection = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-sm font-medium text-foreground">
+                        <Label htmlFor="phone" className="text-sm font-medium text-wings-black">
                           Phone Number
                         </Label>
                         <Input
@@ -253,7 +253,7 @@ const ContactSection = () => {
 
                     {/* Service Selection */}
                     <div className="space-y-2">
-                      <Label htmlFor="service" className="text-sm font-medium text-foreground">
+                      <Label htmlFor="service" className="text-sm font-medium text-wings-black">
                         Service of Interest
                       </Label>
                       <select
@@ -261,7 +261,7 @@ const ContactSection = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full px-3 py-2 border border-border rounded-md bg-background text-wings-black focus:outline-none focus:ring-2 focus:ring-primary"
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
@@ -272,7 +272,7 @@ const ContactSection = () => {
 
                     {/* Message */}
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-sm font-medium text-foreground">
+                      <Label htmlFor="message" className="text-sm font-medium text-wings-black">
                         Project Details
                       </Label>
                       <Textarea
@@ -299,14 +299,14 @@ const ContactSection = () => {
                         </>
                       ) : (
                         <>
-                          Request Free Quote
+                          Request a Free Quote
                           <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </Button>
 
                     {/* Guarantee */}
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground justify-center">
+                    <div className="flex items-center space-x-2 text-sm text-wings-grey justify-center">
                       <CheckCircle className="h-4 w-4 text-primary" />
                       <span>24-hour response guarantee • No obligation • Free consultation</span>
                     </div>

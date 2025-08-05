@@ -1,4 +1,4 @@
-import { Shield, Mail, MapPin, Clock } from 'lucide-react';
+import { Shield, Mail, MapPin, Clock, Phone } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -24,23 +24,23 @@ const Footer = () => {
                   <div className="absolute -top-1 -right-1 h-4 w-4 bg-primary rounded-full animate-float"></div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-2xl font-bold tracking-tight">WINGS</span>
+                  <span className="text-2xl font-display font-bold tracking-tight">WINGS</span>
                   <span className="text-xs text-white/70 font-medium tracking-wider">SECURITY LTD</span>
                 </div>
               </div>
               <p className="text-white/80 text-sm leading-relaxed">
-                Professional security services across Dublin with cutting-edge technology 
+                Professional insured security services across Ireland with cutting-edge technology 
                 and experienced personnel protecting what matters most.
               </p>
               <div className="flex items-center space-x-2 text-sm">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-white/70">Licensing in Progress</span>
+                <span className="text-white/70">Application in Progress</span>
               </div>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Quick Links</h3>
+              <h3 className="text-lg font-display font-semibold">Quick Links</h3>
               <div className="space-y-3">
                 {[
                   { label: 'Home', id: 'home' },
@@ -61,11 +61,11 @@ const Footer = () => {
 
             {/* Services */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Our Services</h3>
+              <h3 className="text-lg font-display font-semibold">Our Services</h3>
               <div className="space-y-3">
                 {[
                   'Static Guarding',
-                  'Event Security',
+                  'Event Stewarding and Static Event Security',
                   'IRIS Remote Guarding',
                   'Security Consultation',
                   'Risk Assessment'
@@ -84,7 +84,7 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Contact Info</h3>
+              <h3 className="text-lg font-display font-semibold">Contact Info</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -100,10 +100,23 @@ const Footer = () => {
                 </div>
                 
                 <div className="flex items-start space-x-3">
+                  <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-sm font-medium">Phone</div>
+                    <a 
+                      href="tel:+353899899484" 
+                      className="text-white/70 hover:text-primary transition-colors text-sm"
+                    >
+                      +353 899899484
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-sm font-medium">Location</div>
-                    <div className="text-white/70 text-sm">Dublin, Ireland</div>
+                    <div className="text-white/70 text-sm">Headquartered in Dublin, operating nationwide</div>
                   </div>
                 </div>
                 

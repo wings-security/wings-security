@@ -20,7 +20,8 @@ export default {
 		extend: {
 			fontFamily: {
 				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'display': ['Inter', 'sans-serif'],
+				'display': ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'body': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				// Core design tokens
@@ -81,6 +82,8 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
+				'gradient-glass': 'var(--gradient-glass)',
+				'gradient-glass-dark': 'var(--gradient-glass-dark)',
 			},
 			boxShadow: {
 				'wings-sm': 'var(--shadow-sm)',
@@ -88,6 +91,8 @@ export default {
 				'wings-lg': 'var(--shadow-lg)',
 				'wings-xl': 'var(--shadow-xl)',
 				'wings-green': 'var(--shadow-green)',
+				'wings-glass': 'var(--shadow-glass)',
+				'wings-glass-lg': 'var(--shadow-glass-lg)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
