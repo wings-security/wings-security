@@ -93,8 +93,8 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Location",
-      detail: "Headquartered in Dublin",
-      description: "Operating nationwide across Ireland"
+      detail: "Block 1, Blanchardstown Corporate Park",
+      description: "Ballycoolin Road, Dublin 15, D15 AKK1"
     },
     {
       icon: Clock,
@@ -106,7 +106,7 @@ const ContactSection = () => {
 
   const services = [
     "Static Guarding",
-    "Event Stewarding and Static Event Security", 
+    "Event Stewarding / Static Event Guards", 
     "IRIS Remote Guarding (Coming Soon)",
     "Security Consultation",
     "Risk Assessment",
@@ -173,7 +173,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-display font-semibold text-wings-black">Licensed & Insured</h4>
-                      <p className="text-sm text-wings-grey">Application in progress - Full compliance guaranteed</p>
+                      <p className="text-sm text-wings-grey">We are fully insured - Licensing in Progress</p>
                     </div>
                   </div>
                 </CardContent>

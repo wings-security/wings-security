@@ -19,9 +19,11 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'display': ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'body': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'sans': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'display': ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Goli fallback
+				'body': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Morgon fallback
+				'goli': ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'morgon': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				// Core design tokens

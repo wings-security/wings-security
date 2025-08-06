@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Shield } from 'lucide-react';
+import wingsLogo from '@/assets/wings-logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,14 +42,11 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('home')}>
-            <div className="relative">
-              <Shield className="h-10 w-10 text-primary animate-pulse-glow" />
-              <div className="absolute -top-1 -right-1 h-4 w-4 bg-primary rounded-full animate-float"></div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-display font-bold text-wings-black tracking-tight">WINGS</span>
-              <span className="text-xs text-wings-grey font-medium tracking-wider">SECURITY LTD</span>
-            </div>
+            <img 
+              src={wingsLogo} 
+              alt="WINGS Security Ltd." 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}

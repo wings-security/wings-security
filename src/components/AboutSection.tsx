@@ -49,15 +49,15 @@ const AboutSection = () => {
       color: "text-primary"
     },
     {
-      icon: Zap,
-      title: "Innovation",
-      description: "Embracing cutting-edge technology to enhance traditional security methods.",
+      icon: Heart,
+      title: "Community Focus",
+      description: "Dedicated to protecting our local communities and businesses across Ireland.",
       color: "text-accent"
     },
     {
-      icon: Heart,
-      title: "Professionalism",
-      description: "Committed to delivering the highest standards of security services across Ireland.",
+      icon: Zap,
+      title: "Innovation",
+      description: "Embracing cutting-edge technology to enhance traditional security methods.",
       color: "text-wings-grey-dark"
     },
     {
@@ -100,10 +100,18 @@ const AboutSection = () => {
               <div className="space-y-4">
                 <h3 className="text-2xl font-display font-bold text-wings-black">Our Mission</h3>
                 <p className="text-wings-grey leading-relaxed">
+                  Our mission is to protect people, property, and businesses across Ireland through reliable, professional, 
+                  and future-ready security services.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-display font-bold text-wings-black">About WINGS</h3>
+                <p className="text-wings-grey leading-relaxed">
                   At WINGS Security Ltd., we're committed to delivering professional, insured security services across Ireland. 
                   Built on values of trust, reliability, and professionalism, our mission is to give clients peace of mind 
-                  through tailored static guarding and event security solutions. We're currently licensed for static services 
-                  (application in progress), and we're developing IRIS — our upcoming remote guarding platform.
+                  through tailored static guarding and event security solutions. We're currently undergoing licensing and are 
+                  developing IRIS — our upcoming remote guarding platform.
                 </p>
               </div>
 
@@ -111,7 +119,8 @@ const AboutSection = () => {
                 <h3 className="text-2xl font-display font-bold text-wings-black">Why Choose WINGS?</h3>
                 <div className="space-y-3">
                   {[
-                    "Fully insured security services across Ireland",
+                    "We are fully insured across all of Ireland",
+                    "Licensing in Progress - professional standards",
                     "Experienced security professionals from diverse backgrounds",
                     "Technology-enhanced traditional security methods", 
                     "Rapid response capabilities nationwide",

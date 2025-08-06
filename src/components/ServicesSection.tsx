@@ -67,7 +67,7 @@ const ServicesSection = () => {
     },
     {
       icon: Users,
-      title: "Event Stewarding and Static Event Security", 
+      title: "Event Stewarding / Static Event Guards", 
       description: "Specialized security solutions for events of all sizes, ensuring safety and smooth operations.",
       features: [
         "Crowd management expertise",
@@ -82,7 +82,7 @@ const ServicesSection = () => {
     {
       icon: Eye,
       title: "IRIS Remote Guarding",
-      description: "Coming Soon - Advanced remote monitoring platform.",
+      description: "Coming Soon – IRIS is our next-gen remote guarding solution.",
       features: [
         "Remote monitoring technology",
         "Real-time response protocols",
@@ -116,7 +116,7 @@ const ServicesSection = () => {
             
             <p className="text-xl text-wings-grey max-w-3xl mx-auto">
               From traditional security guarding to cutting-edge remote monitoring, 
-              we provide tailored solutions that adapt to your unique security needs.
+              we provide tailored solutions that adapt to your unique security needs across Ireland.
             </p>
           </div>
 
@@ -214,7 +214,7 @@ const ServicesSection = () => {
               <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
                 <MapPin className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-display font-semibold text-wings-black">Ireland Coverage</h3>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Serving all of Ireland</h3>
               <p className="text-wings-grey">Headquartered in Dublin, operating nationwide across Ireland.</p>
             </div>
             
@@ -223,7 +223,7 @@ const ServicesSection = () => {
                 <UserCheck className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-lg font-display font-semibold text-wings-black">Licensed Professionals</h3>
-              <p className="text-wings-grey">Insured professionals with licensing in progress.</p>
+              <p className="text-wings-grey">We are fully insured with licensing in progress.</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Shield, Mail, MapPin, Clock, Phone } from 'lucide-react';
+import wingsLogo from '@/assets/wings-logo.png';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -19,14 +20,11 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="relative">
-                  <Shield className="h-10 w-10 text-primary animate-pulse-glow" />
-                  <div className="absolute -top-1 -right-1 h-4 w-4 bg-primary rounded-full animate-float"></div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-display font-bold tracking-tight">WINGS</span>
-                  <span className="text-xs text-white/70 font-medium tracking-wider">SECURITY LTD</span>
-                </div>
+                <img 
+                  src={wingsLogo} 
+                  alt="WINGS Security Ltd." 
+                  className="h-12 w-auto filter brightness-0 invert"
+                />
               </div>
               <p className="text-white/80 text-sm leading-relaxed">
                 Professional insured security services across Ireland with cutting-edge technology 
@@ -34,7 +32,7 @@ const Footer = () => {
               </p>
               <div className="flex items-center space-x-2 text-sm">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-white/70">Application in Progress</span>
+                <span className="text-white/70">Licensing in Progress</span>
               </div>
             </div>
 
@@ -65,7 +63,7 @@ const Footer = () => {
               <div className="space-y-3">
                 {[
                   'Static Guarding',
-                  'Event Stewarding and Static Event Security',
+                  'Event Stewarding / Static Event Guards',
                   'IRIS Remote Guarding',
                   'Security Consultation',
                   'Risk Assessment'
@@ -116,7 +114,11 @@ const Footer = () => {
                   <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-sm font-medium">Location</div>
-                    <div className="text-white/70 text-sm">Headquartered in Dublin, operating nationwide</div>
+                    <div className="text-white/70 text-sm">
+                      Block 1, Blanchardstown Corporate Park<br />
+                      Ballycoolin Road, Dublin 15, D15 AKK1<br />
+                      Headquartered in Dublin, operating nationwide
+                    </div>
                   </div>
                 </div>
                 
