@@ -1,5 +1,5 @@
-import { Shield, Mail, MapPin, Clock, Phone } from 'lucide-react';
-import wingsLogo from '@/assets/wings-logo.png';
+import { Shield, Mail, MapPin, Clock, Phone, Linkedin } from 'lucide-react';
+import wingsLogo from '@/assets/wings-logo-official.png';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -30,9 +30,19 @@ const Footer = () => {
                 Professional insured security services across Ireland with cutting-edge technology 
                 and experienced personnel protecting what matters most.
               </p>
-              <div className="flex items-center space-x-2 text-sm">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-white/70">Licensing in Progress</span>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-sm">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <span className="text-white/70">Fully Insured</span>
+                </div>
+                <a 
+                  href="https://www.linkedin.com/company/wings-security-limited/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-wings-grey-dark/20 hover:bg-primary/10 transition-colors group"
+                >
+                  <Linkedin className="h-5 w-5 text-wings-grey group-hover:text-primary transition-colors" />
+                </a>
               </div>
             </div>
 
