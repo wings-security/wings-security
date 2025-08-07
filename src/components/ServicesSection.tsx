@@ -56,7 +56,7 @@ const ServicesSection = () => {
       title: "Static Guarding",
       description: "Professional security personnel for retail, corporate, and construction sites across Ireland.",
       features: [
-        "Trained security professionals",
+        "Fully Insured professionals",
         "Access control management", 
         "Incident response protocols",
         "Regular patrol schedules"
@@ -81,13 +81,13 @@ const ServicesSection = () => {
     },
     {
       icon: Eye,
-      title: "IRIS Remote Guarding",
+      title: "IRIS Remote Guarding (Coming Soon)",
       description: "Coming Soon – IRIS is our next-gen remote guarding solution.",
       features: [
         "Remote monitoring technology",
         "Real-time response protocols",
-        "Advanced analytics",
-        "24/7 monitoring center"
+        "Advanced technology",
+        "24/7 monitoring"
       ],
       image: irisRemoteImage,
       iconColor: "text-accent",
@@ -222,8 +222,8 @@ const ServicesSection = () => {
               <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
                 <UserCheck className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-display font-semibold text-wings-black">Licensed Professionals</h3>
-              <p className="text-wings-grey">We are fully insured with licensing in progress.</p>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Fully Insured</h3>
+              <p className="text-wings-grey">Professional, insured security services across Ireland.</p>
             </div>
           </div>
         </div>

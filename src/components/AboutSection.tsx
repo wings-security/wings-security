@@ -110,8 +110,10 @@ const AboutSection = () => {
                 <p className="text-wings-grey leading-relaxed">
                   At WINGS Security Ltd., we're committed to delivering professional, insured security services across Ireland. 
                   Built on values of trust, reliability, and professionalism, our mission is to give clients peace of mind 
-                  through tailored static guarding and event security solutions. WINGS Security Ltd. is fully insured and 
-                  operating under licensing application review (expected approval within weeks). We're developing IRIS — our upcoming remote guarding platform.
+                  through tailored static guarding and event security solutions. We're developing IRIS — our upcoming remote guarding platform.
+                </p>
+                <p className="text-sm text-wings-grey/80 mt-4">
+                  WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
                 </p>
               </div>
 

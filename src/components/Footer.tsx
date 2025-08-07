@@ -144,11 +144,16 @@ const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/10 pt-8">
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+            <div>
               <div className="text-white/60 text-sm">
                 © {currentYear} WINGS Security Ltd. All rights reserved.
               </div>
+              <div className="text-white/40 text-xs mt-1">
+                WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
+              </div>
+            </div>
               
               <div className="flex items-center space-x-6 text-sm text-white/60">
                 <button 

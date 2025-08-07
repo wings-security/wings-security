@@ -172,7 +172,7 @@ const ContactSection = () => {
                       <Shield className="h-8 w-8 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-display font-semibold text-wings-black">Licensed & Insured</h4>
+                      <h4 className="font-display font-semibold text-wings-black">Fully Insured</h4>
                       <p className="text-sm text-wings-grey">WINGS Security Ltd. is fully insured and operating under licensing application review (expected approval within weeks).</p>
                     </div>
                   </div>

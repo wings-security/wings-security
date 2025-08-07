@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Shield } from 'lucide-react';
 import wingsLogo from '@/assets/wings-logo-official.png';
+import { Linkedin } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,6 +29,7 @@ const Header = () => {
     { label: 'Services', id: 'services' },
     { label: 'About', id: 'about' },
     { label: 'Contact', id: 'contact' },
+    { label: 'IRIS (Coming Soon)', id: 'services' },
   ];
 
   return (
@@ -62,14 +64,22 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="btn-wings-primary"
-              >
-                Request a Free Quote
-              </Button>
+          {/* LinkedIn and CTA */}
+          <div className="hidden md:flex items-center space-x-4">
+            <a 
+              href="https://www.linkedin.com/company/wings-security-limited/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+            >
+              <Linkedin className="h-5 w-5 text-primary" />
+            </a>
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-wings-primary"
+            >
+              Request a Free Quote
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}

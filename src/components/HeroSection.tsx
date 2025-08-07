@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, CheckCircle, Eye } from 'lucide-react';
-import heroBackground from '@/assets/hero-security-guard.jpg';
+import heroBackground from '@/assets/hero-security-professional.jpg';
 import wingElement from '@/assets/wing-element.png';
 import lockIcon from '@/assets/lock-icon.png';
 
@@ -62,10 +62,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-20"></div>
 
       <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
-            <div className={`space-y-8 ${isVisible ? 'wings-fade-in' : 'opacity-0'}`}>
+        <div className="max-w-4xl mx-auto text-center">
+          <div className={`space-y-8 ${isVisible ? 'wings-fade-in' : 'opacity-0'}`}>
               <div className="glass-card p-8 rounded-2xl border border-white/20 backdrop-blur-md bg-white/10">
                 <div className="space-y-6">
                   {/* Badge */}
@@ -76,11 +74,8 @@ const HeroSection = () => {
 
                   {/* Main Headline */}
                   <div className="space-y-4">
-                    <h1 className="text-4xl lg:text-6xl font-display font-bold leading-tight">
-                      <span className="text-white block mb-2">You're covered while</span>
-                      <span className="block text-wings-gradient bg-gradient-primary bg-clip-text text-transparent">
-                        our guards are at work.
-                      </span>
+                    <h1 className="text-4xl lg:text-6xl font-display font-bold leading-tight text-white">
+                      You're covered while our guards are at work.
                     </h1>
                     
                     <p className="text-lg lg:text-xl text-white/90 leading-relaxed">
@@ -123,72 +118,8 @@ const HeroSection = () => {
                     </Button>
                   </div>
                 </div>
-              </div>
-            </div>
+        </div>
 
-            {/* Right Column - Glassmorphism Visual */}
-            <div className={`relative ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
-              {/* Background Elements */}
-              <div className="absolute inset-0 opacity-30">
-                <img 
-                  src={lockIcon} 
-                  alt=""
-                  className="absolute top-10 right-10 w-16 h-16 animate-pulse"
-                />
-                <img 
-                  src={wingElement} 
-                  alt=""
-                  className="absolute bottom-20 left-10 w-20 h-20 animate-pulse"
-                  style={{ animationDelay: '1s' }}
-                />
-              </div>
-
-              <div className="relative">
-                {/* Main Security Visual with Glassmorphism */}
-                <div className="relative w-full h-96 lg:h-[500px] glass-card rounded-3xl overflow-hidden shadow-wings-glass-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5"></div>
-                  
-                  {/* Floating Glass Cards */}
-                  <div className="absolute top-8 left-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                      <span className="text-sm font-medium text-white">Fully Insured & Licensed</span>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute top-8 right-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
-                    <div className="flex items-center space-x-3">
-                      <Eye className="h-5 w-5 text-primary" />
-                      <span className="text-sm font-medium text-white">24/7 Active</span>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-8 left-8 glass-card p-4 rounded-xl shadow-wings-lg wings-hover-lift">
-                    <div className="flex items-center space-x-3">
-                      <Shield className="h-5 w-5 text-primary" />
-                      <span className="text-sm font-medium text-white">Ireland Coverage</span>
-                    </div>
-                  </div>
-
-                  {/* Central Security Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      <div className="w-32 h-32 glass-card rounded-full flex items-center justify-center border border-primary/30 animate-pulse-glow">
-                        <Shield className="h-16 w-16 text-primary" />
-                      </div>
-                      
-                      {/* Orbiting Elements */}
-                      <div className="absolute inset-0">
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2 w-4 h-4 bg-primary rounded-full animate-float"></div>
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 w-4 h-4 bg-primary rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-                        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 w-4 h-4 bg-primary rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 w-4 h-4 bg-primary rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
