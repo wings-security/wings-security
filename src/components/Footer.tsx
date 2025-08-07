@@ -1,5 +1,5 @@
 import { Shield, Mail, MapPin, Clock, Phone, Linkedin } from 'lucide-react';
-import wingsLogo from '@/assets/wings-logo-official.png';
+import wingsLogo from '@/assets/wings-logo.png';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -21,9 +21,9 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <img 
-                  src={wingsLogo} 
+                  src="/lovable-uploads/cf1f0251-9325-4c3f-a0c3-f7b018be665f.png" 
                   alt="WINGS Security Ltd." 
-                  className="h-12 w-auto filter brightness-0 invert"
+                  className="h-12 w-auto"
                 />
               </div>
               <p className="text-white/80 text-sm leading-relaxed">

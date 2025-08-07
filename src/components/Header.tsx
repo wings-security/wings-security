@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Shield } from 'lucide-react';
-import wingsLogo from '@/assets/wings-logo-official.png';
+import wingsLogo from '@/assets/wings-logo.png';
 import { Linkedin } from 'lucide-react';
 
 const Header = () => {
@@ -45,7 +45,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('home')}>
             <img 
-              src={wingsLogo} 
+              src="/lovable-uploads/cf1f0251-9325-4c3f-a0c3-f7b018be665f.png" 
               alt="WINGS Security Ltd." 
               className="h-12 w-auto"
             />
