@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import heroBackground from '@/assets/hero-security-guard.jpg';
+import heroBackground from '@/assets/security-guard-static.jpg';
 
 const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroBackground}
-          alt="Licensed Irish security guard on duty"
+          alt="Static security guards on duty in Ireland"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -31,7 +31,7 @@ const HeroSection = () => {
               You’re covered while our guards are at work.
             </h1>
             <p className="mt-4 text-lg lg:text-xl text-white/90 leading-relaxed">
-              Professional, insured security services across Ireland — trusted by businesses nationwide.
+              Professional, licensed, and insured — trusted by Irish businesses nationwide.
             </p>
 
             {/* CTA Buttons */}

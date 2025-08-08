@@ -149,7 +149,7 @@ const Footer = () => {
                 © {currentYear} WINGS Security Ltd. All rights reserved.
               </div>
               <div className="text-white/40 text-xs mt-1">
-                WINGS Security is fully insured and operating under PSA licensing application review (approval expected within weeks).
+                WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
               </div>
             </div>
               

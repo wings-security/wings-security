@@ -35,7 +35,7 @@ const AboutSection = () => {
   }, []);
 
   const stats = [
-    { number: "24/7", label: "Monitoring", icon: Shield },
+    { number: "Trained", label: "Officers", icon: Shield },
     { number: "100%", label: "Insured", icon: Award },
     { number: "Ireland", label: "Coverage", icon: Target },
     { number: "Professional", label: "Service", icon: Users }

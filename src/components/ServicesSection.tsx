@@ -5,8 +5,6 @@ import {
   Shield, 
   Users, 
   Eye, 
-  Clock, 
-  MapPin, 
   ArrowRight,
   Zap,
   UserCheck
@@ -87,7 +85,7 @@ const ServicesSection = () => {
         "Remote monitoring technology",
         "Real-time response protocols",
         "Advanced technology",
-        "24/7 monitoring"
+        "Proactive deterrence"
       ],
       image: irisRemoteImage,
       iconColor: "text-accent",
@@ -201,29 +199,37 @@ const ServicesSection = () => {
           </div>
 
           {/* Additional Info Section */}
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center space-y-3">
               <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
-                <Clock className="h-8 w-8 text-primary" />
+                <Shield className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-display font-semibold text-wings-black">24/7 Availability</h3>
-              <p className="text-wings-grey">Round-the-clock security services when you need them most.</p>
-            </div>
-            
-            <div className="text-center space-y-3">
-              <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
-                <MapPin className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-display font-semibold text-wings-black">Serving all of Ireland</h3>
-              <p className="text-wings-grey">Headquartered in Dublin, operating nationwide across Ireland.</p>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Licensed Security Professionals</h3>
+              <p className="text-wings-grey">Experienced static guards for retail, corporate, and logistics sites.</p>
             </div>
             
             <div className="text-center space-y-3">
               <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
                 <UserCheck className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-lg font-display font-semibold text-wings-black">Fully Insured</h3>
-              <p className="text-wings-grey">Professional, insured security services across Ireland.</p>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Trained Officers (Static & Event Guards)</h3>
+              <p className="text-wings-grey">Professional officers trained for site safety and events.</p>
+            </div>
+            
+            <div className="text-center space-y-3">
+              <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
+                <Zap className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Faster Deployments</h3>
+              <p className="text-wings-grey">Responsive scheduling to meet urgent site needs.</p>
+            </div>
+            
+            <div className="text-center space-y-3">
+              <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mx-auto">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-display font-semibold text-wings-black">Trusted by Ireland Businesses</h3>
+              <p className="text-wings-grey">Serving Irish clients with consistent, reliable service.</p>
             </div>
           </div>
         </div>
