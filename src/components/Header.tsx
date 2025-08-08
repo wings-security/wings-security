@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Shield } from 'lucide-react';
-import wingsLogo from '@/assets/wings-logo.png';
+import { Menu, X } from 'lucide-react';
+
 import { Linkedin } from 'lucide-react';
 
 const Header = () => {
@@ -34,10 +34,10 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
         isScrolled 
-          ? 'glass-nav shadow-wings-glass' 
-          : 'bg-transparent'
+          ? 'glass-nav shadow-wings-glass opacity-100 translate-y-0' 
+          : 'opacity-0 -translate-y-3 pointer-events-none'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -45,8 +45,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('home')}>
             <img 
-              src="/lovable-uploads/cf1f0251-9325-4c3f-a0c3-f7b018be665f.png" 
-              alt="WINGS Security Ltd." 
+              src="/assets/wings-logo.png" 
+              alt="WINGS Security green logo" 
               className="h-12 w-auto"
             />
           </div>

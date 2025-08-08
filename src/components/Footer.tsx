@@ -1,5 +1,5 @@
 import { Shield, Mail, MapPin, Clock, Phone, Linkedin } from 'lucide-react';
-import wingsLogo from '@/assets/wings-logo.png';
+
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -21,8 +21,8 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/lovable-uploads/cf1f0251-9325-4c3f-a0c3-f7b018be665f.png" 
-                  alt="WINGS Security Ltd." 
+                  src="/assets/wings-logo.png" 
+                  alt="WINGS Security green logo" 
                   className="h-12 w-auto"
                 />
               </div>
@@ -74,13 +74,11 @@ const Footer = () => {
                 {[
                   'Static Guarding',
                   'Event Stewarding / Static Event Guards',
-                  'IRIS Remote Guarding',
-                  'Security Consultation',
-                  'Risk Assessment'
+                  'IRIS Remote Guarding (Coming Soon)'
                 ].map((service) => (
                   <div key={service} className="text-white/70 text-sm">
                     {service}
-                    {service === 'IRIS Remote Guarding' && (
+                    {service.includes('IRIS Remote Guarding') && (
                       <span className="ml-2 text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">
                         Coming Soon
                       </span>
@@ -151,7 +149,7 @@ const Footer = () => {
                 © {currentYear} WINGS Security Ltd. All rights reserved.
               </div>
               <div className="text-white/40 text-xs mt-1">
-                WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
+                WINGS Security is fully insured and operating under PSA licensing application review (approval expected within weeks).
               </div>
             </div>
               

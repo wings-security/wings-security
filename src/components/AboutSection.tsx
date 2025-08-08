@@ -113,7 +113,7 @@ const AboutSection = () => {
                   through tailored static guarding and event security solutions. We're developing IRIS — our upcoming remote guarding platform.
                 </p>
                 <p className="text-sm text-wings-grey/80 mt-4">
-                  WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
+                  WINGS Security is fully insured and operating under PSA licensing application review (approval expected within weeks).
                 </p>
               </div>
 
