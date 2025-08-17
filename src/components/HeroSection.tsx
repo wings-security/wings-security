@@ -35,14 +35,14 @@ const HeroSection = () => {
             </p>
             
             {/* Compliance Strip */}
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-3">
-              <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2">
+            <div className="mt-6 flex justify-center">
+              <div className="inline-flex items-center space-x-3 backdrop-blur-sm bg-white/5 rounded-full px-6 py-3">
                 <img 
-                  src="/lovable-uploads/e4f8ccda-c38e-4b8a-94ff-9fcf1847f6bf.png" 
+                  src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
                   alt="PSA Licensed" 
-                  className="h-6 w-auto"
+                  className="h-7 w-auto"
                 />
-                <span className="text-sm text-white/90 font-medium">
+                <span className="text-white font-medium text-[15px] sm:text-[16px] text-center">
                   Licensed by the Private Security Authority — PSA Licence No. 14161 • CRO: 772757
                 </span>
               </div>
