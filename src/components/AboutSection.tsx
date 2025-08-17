@@ -35,10 +35,10 @@ const AboutSection = () => {
   }, []);
 
   const stats = [
-    { number: "Trained", label: "Officers", icon: Shield },
-    { number: "100%", label: "Insured", icon: Award },
-    { number: "Ireland", label: "Coverage", icon: Target },
-    { number: "Professional", label: "Service", icon: Users }
+    { number: "Licensed", label: "Security Professionals", icon: Shield },
+    { number: "Trained", label: "Officers (Static & Event Guards)", icon: Award },
+    { number: "Faster", label: "Deployments", icon: Target },
+    { number: "Trusted by", label: "Ireland Businesses", icon: Users }
   ];
 
   const values = [
@@ -112,9 +112,6 @@ const AboutSection = () => {
                   Built on values of trust, reliability, and professionalism, our mission is to give clients peace of mind 
                   through tailored static guarding and event security solutions. We're developing IRIS — our upcoming remote guarding platform.
                 </p>
-                <p className="text-sm text-wings-grey/80 mt-4">
-                  WINGS Security is fully insured and operating under PSA licensing application review (approval expected within weeks).
-                </p>
               </div>
 
               <div className="space-y-4">
@@ -140,8 +137,8 @@ const AboutSection = () => {
 
             {/* Right Column - Visual */}
             <div className={`space-y-6 ${isVisible ? 'wings-scale-in' : 'opacity-0'}`}>
-              {/* Stats Cards */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* Trust Row - Evenly Spaced */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {stats.map((stat, index) => (
                   <Card 
                     key={stat.label}
@@ -155,8 +152,8 @@ const AboutSection = () => {
                         <stat.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="text-2xl font-display font-bold text-wings-black">{stat.number}</div>
-                        <div className="text-sm text-wings-grey">{stat.label}</div>
+                        <div className="text-lg font-display font-bold text-wings-black">{stat.number}</div>
+                        <div className="text-xs text-wings-grey leading-tight">{stat.label}</div>
                       </div>
                     </CardContent>
                   </Card>

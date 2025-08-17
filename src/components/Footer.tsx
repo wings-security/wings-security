@@ -145,11 +145,8 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div>
-              <div className="text-white/60 text-sm">
-                © {currentYear} WINGS Security Ltd. All rights reserved.
-              </div>
-              <div className="text-wings-grey text-xs mt-1">
-                WINGS Security Ltd - PSA Licence No. 14161 · CRO 772757 · Fully insured.
+              <div className="text-wings-grey text-xs">
+                © 2025 WINGS Security Ltd · PSA Licence No. 14161 · CRO 772757 · Fully insured.
               </div>
             </div>
               

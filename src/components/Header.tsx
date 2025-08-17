@@ -45,8 +45,8 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('home')}>
             <img 
-              src="/assets/wings-logo.png" 
-              alt="WINGS Security green logo" 
+              src="/lovable-uploads/117082b5-15cf-4310-a07a-0e0a6ed01dd5.png" 
+              alt="WINGS Security logo" 
               className="h-12 w-auto"
             />
           </div>

@@ -33,9 +33,19 @@ const HeroSection = () => {
             <p className="mt-4 text-lg lg:text-xl text-white/90 leading-relaxed">
               Professional, licensed, and insured — trusted by Irish businesses nationwide.
             </p>
-            <div className="mt-3 text-sm text-white/80">
-              <span className="inline-block mr-4">PSA Licence No. 14161 - Licensed by the Private Security Authority</span>
-              <span className="inline-block">CRO: 772757</span>
+            
+            {/* Compliance Strip */}
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-2 sm:space-y-0 sm:space-x-3">
+              <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2">
+                <img 
+                  src="/lovable-uploads/e4f8ccda-c38e-4b8a-94ff-9fcf1847f6bf.png" 
+                  alt="PSA Licensed" 
+                  className="h-6 w-auto"
+                />
+                <span className="text-sm text-white/90 font-medium">
+                  Licensed by the Private Security Authority — PSA Licence No. 14161 • CRO: 772757
+                </span>
+              </div>
             </div>
 
             {/* CTA Buttons */}
