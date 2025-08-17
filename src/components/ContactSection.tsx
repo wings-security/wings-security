@@ -172,8 +172,9 @@ const ContactSection = () => {
                       <Shield className="h-8 w-8 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-display font-semibold text-wings-black">Fully Insured</h4>
-                      <p className="text-sm text-wings-grey">WINGS Security Ltd. is fully insured and operating under licensing application review (expected approval within weeks).</p>
+                      <h4 className="font-display font-semibold text-wings-black">Fully Licensed & Insured</h4>
+                      <p className="text-sm text-wings-grey">PSA Licence No. 14161 - Licensed by the Private Security Authority</p>
+                      <p className="text-xs text-wings-grey mt-1">CRO: 772757 · Fully insured across Ireland</p>
                     </div>
                   </div>
                 </CardContent>

@@ -124,6 +124,7 @@ const AboutSection = () => {
                     "We are fully insured across all of Ireland",
                     "Professional standards and comprehensive training",
                     "Experienced security professionals from diverse backgrounds",
+                    "Tech-enabled operations: GPS/time-stamped patrol logs, incident reporting, and client dashboards for full transparency",
                     "Technology-enhanced traditional security methods", 
                     "Rapid response capabilities nationwide",
                     "Customized security solutions for every client"

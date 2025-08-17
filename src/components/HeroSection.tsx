@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import heroBackground from '@/assets/security-guard-static.jpg';
+import heroBackground from '@/assets/hero-irish-security-guard.jpg';
 
 const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -16,11 +16,11 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroBackground}
-          alt="Static security guards on duty in Ireland"
+          alt="Professional Irish security guard on duty at retail location"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Centered glass overlay content */}
@@ -33,6 +33,10 @@ const HeroSection = () => {
             <p className="mt-4 text-lg lg:text-xl text-white/90 leading-relaxed">
               Professional, licensed, and insured — trusted by Irish businesses nationwide.
             </p>
+            <div className="mt-3 text-sm text-white/80">
+              <span className="inline-block mr-4">PSA Licence No. 14161 - Licensed by the Private Security Authority</span>
+              <span className="inline-block">CRO: 772757</span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
