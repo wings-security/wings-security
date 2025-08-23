@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-
-import { Linkedin } from 'lucide-react';
+import { Menu, X, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,19 +62,37 @@ const Header = () => {
             ))}
           </div>
 
-          {/* LinkedIn and CTA */}
+          {/* Social Media and CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="https://www.linkedin.com/company/wings-security-limited/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
-            >
-              <Linkedin className="h-5 w-5 text-primary" />
-            </a>
+            <div className="flex items-center space-x-2">
+              <a 
+                href="https://www.linkedin.com/company/wings-security-limited/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg hover:bg-muted transition-colors"
+              >
+                <Linkedin className="h-5 w-5 text-primary" />
+              </a>
+              <a 
+                href="https://www.instagram.com/wings_security?igsh=NmZod2pqNHhocjJn&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg hover:bg-muted transition-colors"
+              >
+                <Instagram className="h-5 w-5 text-primary" />
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=61579733607665"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg hover:bg-muted transition-colors"
+              >
+                <Facebook className="h-5 w-5 text-primary" />
+              </a>
+            </div>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="btn-wings-primary"
+              className="btn-wings-primary font-bold"
             >
               Request a Free Quote
             </Button>
@@ -108,10 +124,36 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-2 space-y-3">
+                <div className="flex justify-center space-x-4">
+                  <a 
+                    href="https://www.linkedin.com/company/wings-security-limited/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5 text-primary" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/wings_security?igsh=NmZod2pqNHhocjJn&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    <Instagram className="h-5 w-5 text-primary" />
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61579733607665"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  >
+                    <Facebook className="h-5 w-5 text-primary" />
+                  </a>
+                </div>
                 <Button 
                   onClick={() => scrollToSection('contact')}
-                  className="btn-wings-primary w-full"
+                  className="btn-wings-primary w-full font-bold"
                 >
                   Request a Free Quote
                 </Button>

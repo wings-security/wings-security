@@ -20,7 +20,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
       </div>
 
       {/* Centered glass overlay content */}
@@ -30,7 +30,7 @@ const HeroSection = () => {
             <h1 className="text-4xl lg:text-6xl font-display font-bold leading-tight text-white">
               You’re covered while our guards are at work.
             </h1>
-            <p className="mt-4 text-lg lg:text-xl text-white/90 leading-relaxed">
+            <p className="mt-4 text-lg lg:text-xl text-white/95 leading-relaxed drop-shadow-md">
               Professional, licensed, and insured — trusted by Irish businesses nationwide.
             </p>
             
@@ -50,7 +50,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={() => scrollToSection('contact')} className="btn-wings-primary group">
+              <Button onClick={() => scrollToSection('contact')} className="btn-wings-primary group font-bold shadow-2xl">
                 Request a Free Quote
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -58,7 +58,7 @@ const HeroSection = () => {
               <Button
                 onClick={() => scrollToSection('services')}
                 variant="outline"
-                className="btn-wings-secondary bg-white/10 border-white/20 text-white hover:bg-white/20"
+                className="btn-wings-secondary bg-white/10 border-white/20 text-white hover:bg-white/20 font-semibold"
               >
                 Get a Consultation
                 </Button>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { 
   Shield, 
   Award, 
@@ -8,7 +9,8 @@ import {
   CheckCircle,
   TrendingUp,
   Heart,
-  Zap
+  Zap,
+  ArrowRight
 } from 'lucide-react';
 
 const AboutSection = () => {
@@ -118,19 +120,34 @@ const AboutSection = () => {
                 <h3 className="text-2xl font-display font-bold text-wings-black">Why Choose WINGS?</h3>
                 <div className="space-y-3">
                   {[
-                    "We are fully insured across all of Ireland",
-                    "Professional standards and comprehensive training",
-                    "Experienced security professionals from diverse backgrounds",
-                    "Tech-enabled operations: GPS/time-stamped patrol logs, incident reporting, and client dashboards for full transparency",
-                    "Technology-enhanced traditional security methods", 
-                    "Rapid response capabilities nationwide",
-                    "Customized security solutions for every client"
+                    "Tech-enabled operations: GPS/time-stamped patrol logs, incident reporting, and client dashboards for full transparency.",
+                    "Licensed professionals: All security officers are fully vetted, trained, and PSA-compliant.",
+                    "Irish-focused service: Deep understanding of local regulations, business culture, and security needs.",
+                    "Flexible solutions: From retail to corporate to construction — we adapt our approach to your industry."
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-wings-grey">{item}</span>
                     </div>
                   ))}
+                </div>
+
+                {/* CTA After About Section */}
+                <div className="mt-8 pt-6 border-t border-border">
+                  <div className="text-center">
+                    <Button 
+                      onClick={() => {
+                        const element = document.getElementById('contact');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="btn-wings-primary font-bold"
+                    >
+                      Request a Free Quote
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

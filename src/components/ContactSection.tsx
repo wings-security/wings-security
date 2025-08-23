@@ -291,7 +291,7 @@ const ContactSection = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-wings-primary w-full group"
+                      className="btn-wings-primary w-full group font-bold"
                     >
                       {isSubmitting ? (
                         <>
@@ -305,6 +305,16 @@ const ContactSection = () => {
                         </>
                       )}
                     </Button>
+
+                    {/* Additional CTA info */}
+                    <div className="text-center space-y-2">
+                      <div className="text-sm text-wings-grey">
+                        Or call for immediate assistance: 
+                        <a href="tel:+353899899484" className="text-primary hover:underline font-medium ml-1">
+                          +353 899899484
+                        </a>
+                      </div>
+                    </div>
 
                     {/* Guarantee */}
                     <div className="flex items-center space-x-2 text-sm text-wings-grey justify-center">

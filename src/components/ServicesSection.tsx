@@ -177,8 +177,7 @@ const ServicesSection = () => {
                     {service.available ? (
                       <Button 
                         onClick={scrollToContact}
-                        variant="outline" 
-                        className="w-full group hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                        className="btn-wings-primary w-full group font-bold"
                       >
                         Request a Free Quote
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

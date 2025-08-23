@@ -1,4 +1,4 @@
-import { Shield, Mail, MapPin, Clock, Phone, Linkedin } from 'lucide-react';
+import { Shield, Mail, MapPin, Clock, Phone, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 
 const Footer = () => {
@@ -35,14 +35,32 @@ const Footer = () => {
                   <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                   <span className="text-white/70">Fully Insured</span>
                 </div>
-                <a 
-                  href="https://www.linkedin.com/company/wings-security-limited/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-wings-grey-dark/20 hover:bg-primary/10 transition-colors group"
-                >
-                  <Linkedin className="h-5 w-5 text-wings-grey group-hover:text-primary transition-colors" />
-                </a>
+                <div className="flex items-center space-x-2">
+                  <a 
+                    href="https://www.linkedin.com/company/wings-security-limited/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-wings-grey-dark/20 hover:bg-primary/10 transition-colors group"
+                  >
+                    <Linkedin className="h-5 w-5 text-wings-grey group-hover:text-primary transition-colors" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/wings_security?igsh=NmZod2pqNHhocjJn&utm_source=qr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-wings-grey-dark/20 hover:bg-primary/10 transition-colors group"
+                  >
+                    <Instagram className="h-5 w-5 text-wings-grey group-hover:text-primary transition-colors" />
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61579733607665"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-wings-grey-dark/20 hover:bg-primary/10 transition-colors group"
+                  >
+                    <Facebook className="h-5 w-5 text-wings-grey group-hover:text-primary transition-colors" />
+                  </a>
+                </div>
               </div>
             </div>
 

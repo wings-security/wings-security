@@ -149,8 +149,8 @@ All colors MUST be HSL.
   .btn-wings-primary {
     @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))] 
            shadow-[var(--shadow-green)] transition-[var(--transition-smooth)]
-           px-8 py-4 rounded-[var(--radius)] font-semibold text-lg
-           transform hover:scale-105 hover:shadow-xl;
+           px-8 py-4 rounded-[var(--radius)] font-bold text-lg
+           transform hover:scale-105 hover:shadow-2xl border border-primary/20;
   }
   
   .btn-wings-secondary {
