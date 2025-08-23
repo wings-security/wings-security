@@ -161,37 +161,39 @@ const Footer = () => {
 
           {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div>
-              <div className="flex items-center text-wings-grey text-xs">
-                <img 
-                  src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
-                  alt="PSA Licensed" 
-                  className="h-5 w-auto mr-2"
-                />
-                © 2025 WINGS Security Ltd · Licensed by the Private Security Authority (PSA Licence No. 14161) · CRO: 772757 · Fully insured.
+          <div className="flex flex-col items-center justify-center space-y-3">
+            {/* Compliance Line */}
+            <div className="flex items-center text-white/90 text-xs md:text-sm font-medium">
+              <img 
+                src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
+                alt="PSA Licensed" 
+                className="h-5 w-auto mr-2"
+              />
+              © 2025 WINGS Security Ltd · Licensed by the Private Security Authority (PSA Licence No. 14161) · CRO: 772757 · Fully Insured
+            </div>
+            
+            {/* Legal Links */}
+            <div className="flex items-center space-x-6 text-xs text-white/60">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </button>
+              <span>·</span>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </button>
+              <span>·</span>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                <span>Secure & Trusted</span>
               </div>
             </div>
-              
-              <div className="flex items-center space-x-6 text-sm text-white/60">
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="hover:text-primary transition-colors"
-                >
-                  Privacy Policy
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="hover:text-primary transition-colors"
-                >
-                  Terms of Service
-                </button>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                  <span>Secure & Trusted</span>
-                </div>
-              </div>
-            </div>
+          </div>
           </div>
         </div>
       </div>
