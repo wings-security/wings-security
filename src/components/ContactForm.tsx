@@ -250,6 +250,12 @@ const ContactForm = () => {
                   </Button>
 
                   <div className="text-center pt-4">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Messages are sent directly to{' '}
+                      <a href="mailto:info@wingssecurity.ie" className="text-primary hover:underline font-medium">
+                        info@wingssecurity.ie
+                      </a>
+                    </p>
                     <p className="text-sm text-muted-foreground">
                       Questions? Call us at{' '}
                       <a href="tel:+353873694378" className="text-primary hover:underline font-medium">

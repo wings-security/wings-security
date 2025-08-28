@@ -20,21 +20,25 @@ const ThankYou = () => {
 
           <div>
             <h1 className="text-2xl font-display font-bold text-foreground mb-2">
-              Thank You!
+              Thank You for Your Submission!
             </h1>
             <p className="text-muted-foreground leading-relaxed">
-              We've received your submission and will get back to you as quickly as possible.
+              Your details have been received and our team will contact you shortly. We appreciate your interest in WINGS Security.
             </p>
           </div>
 
           <div className="space-y-3 text-sm text-muted-foreground">
             <div className="flex items-center justify-center space-x-2">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>Response within 24 hours</span>
+              <span>We'll contact you within 24 hours</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>Free consultation included</span>
+              <span>Professional consultation included</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2">
+              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <span>All inquiries sent to info@wingssecurity.ie</span>
             </div>
           </div>
 

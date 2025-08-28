@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import heroBackground from '@/assets/hero-irish-security-professional.jpg';
 import TrustBullets from '@/components/TrustBullets';
 
 const HeroSection = () => {
@@ -16,7 +15,7 @@ const HeroSection = () => {
       {/* Background Image with dark overlay for contrast */}
       <div className="absolute inset-0">
         <img
-          src={heroBackground}
+          src="https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg"
           alt="Professional Irish security guard on duty at retail location"
           className="w-full h-full object-cover object-center"
           loading="eager"

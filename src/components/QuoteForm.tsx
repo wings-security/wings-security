@@ -225,6 +225,12 @@ const QuoteForm = () => {
               </Button>
 
               <div className="text-center pt-4">
+                <div className="text-sm text-muted-foreground mb-2">
+                  Quote requests are sent directly to{' '}
+                  <a href="mailto:info@wingssecurity.ie" className="text-primary hover:underline font-medium">
+                    info@wingssecurity.ie
+                  </a>
+                </div>
                 <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
                   <Shield className="h-4 w-4 text-primary" />
                   <span>24-hour response guarantee • No obligation • Free consultation</span>

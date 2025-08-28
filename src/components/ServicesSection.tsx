@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import staticGuardImage from '@/assets/security-guard-static.jpg';
 import eventSecurityImage from '@/assets/event-security.jpg';
-import irisRemoteImage from '@/assets/iris-remote.jpg';
 
 const ServicesSection = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -87,7 +86,7 @@ const ServicesSection = () => {
         "Advanced technology",
         "Proactive deterrence"
       ],
-      image: irisRemoteImage,
+      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
       iconColor: "text-accent",
       available: false,
       comingSoon: true
