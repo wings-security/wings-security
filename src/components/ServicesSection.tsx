@@ -176,7 +176,12 @@ const ServicesSection = () => {
                   <div className="pt-4">
                     {service.available ? (
                       <Button 
-                        onClick={scrollToContact}
+                        onClick={() => {
+                          const element = document.getElementById('quote');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
                         className="btn-wings-primary w-full group font-bold"
                       >
                         Request a Free Quote

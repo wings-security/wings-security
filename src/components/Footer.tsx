@@ -128,10 +128,10 @@ const Footer = () => {
                   <div>
                     <div className="text-sm font-medium">Phone</div>
                     <a 
-                      href="tel:+353899899484" 
+                      href="tel:+353873694378" 
                       className="text-white/70 hover:text-primary transition-colors text-sm"
                     >
-                      +353 899899484
+                      +353 87 369 4378
                     </a>
                   </div>
                 </div>
@@ -192,6 +192,13 @@ const Footer = () => {
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
                 <span>Secure & Trusted</span>
               </div>
+            </div>
+            
+            {/* Footer Disclaimer */}
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <p className="text-center text-xs text-white/60">
+                WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
+              </p>
             </div>
           </div>
           </div>

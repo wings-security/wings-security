@@ -137,7 +137,7 @@ const AboutSection = () => {
                   <div className="text-center">
                     <Button 
                       onClick={() => {
-                        const element = document.getElementById('contact');
+                        const element = document.getElementById('quote');
                         if (element) {
                           element.scrollIntoView({ behavior: 'smooth' });
                         }

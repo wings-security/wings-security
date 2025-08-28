@@ -87,7 +87,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Call Us",
-      detail: "+353 899899484",
+      detail: "+353 87 369 4378",
       description: "Speak directly with our security experts"
     },
     {
@@ -310,8 +310,8 @@ const ContactSection = () => {
                     <div className="text-center space-y-2">
                       <div className="text-sm text-wings-grey">
                         Or call for immediate assistance: 
-                        <a href="tel:+353899899484" className="text-primary hover:underline font-medium ml-1">
-                          +353 899899484
+                        <a href="tel:+353873694378" className="text-primary hover:underline font-medium ml-1">
+                          +353 87 369 4378
                         </a>
                       </div>
                     </div>
