@@ -234,13 +234,3 @@ const Footer = () => {
 };
 
 export default Footer;
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
