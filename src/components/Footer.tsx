@@ -21,7 +21,7 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/assets/wings-logo.png" 
+                  src="/lovable-uploads/117082b5-15cf-4310-a07a-0e0a6ed01dd5.png" 
                   alt="WINGS Security green logo" 
                   className="h-12 w-auto"
                 />
