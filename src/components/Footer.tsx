@@ -160,79 +160,21 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            {/* Left - Copyright */}
-            <div className="text-center md:text-left">
-              <div className="text-white font-medium text-sm mb-1">
-                © 2025 WINGS Security Ltd.
+          {/* Final Footer Line */}
+          <div className="border-t border-white/10 pt-6 mt-12">
+            <div className="text-center text-sm text-white/70 space-y-2">
+              <div>
+                © 2025 <strong className="text-white">WINGS Security Ltd</strong> · Licensed by the <strong className="text-white">Private Security Authority</strong> (Licence No. 14161) · CRO: 772757 · Fully Insured · GDPR Compliant · Trusted by Irish Businesses Nationwide
               </div>
-              <div className="text-white/70 text-xs">
-                Professional, licensed, and insured security services across Ireland.
-              </div>
-            </div>
-            
-            {/* Middle - Navigation Links */}
-            <div className="flex flex-wrap justify-center items-center space-x-4 text-xs text-white/60">
-              <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
-              <span>•</span>
-              <button onClick={() => scrollToSection('services')} className="hover:text-primary transition-colors">Services</button>
-              <span>•</span>
-              <button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About Us</button>
-              <span>•</span>
-              <button onClick={() => scrollToSection('careers')} className="hover:text-primary transition-colors">Careers</button>
-              <span>•</span>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact Us</button>
-              <span>•</span>
-              <span className="hover:text-primary transition-colors cursor-pointer">Privacy Policy</span>
-              <span>•</span>
-              <span className="hover:text-primary transition-colors cursor-pointer">Terms of Service</span>
-            </div>
-            
-            {/* Right - Compliance Info */}
-            <div className="text-center md:text-right">
-              <div className="flex items-center justify-center md:justify-end mb-2">
-                <img 
-                  src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
-                  alt="PSA Licensed" 
-                  className="h-5 w-auto mr-2"
-                />
-                <span className="text-white/90 text-xs font-medium">PSA Licence: 14161</span>
-              </div>
-              <div className="text-white/70 text-xs space-y-1">
-                <div>CRO: 772757</div>
-                <div>Fully Insured & GDPR Compliant</div>
-                <div className="flex items-center justify-center md:justify-end space-x-2">
-                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                  <span>Trusted by Irish Businesses Nationwide</span>
-                </div>
+              <div className="text-xs space-x-2">
+                <span className="hover:text-primary transition-colors cursor-pointer">Privacy Policy</span>
+                <span>·</span>
+                <span className="hover:text-primary transition-colors cursor-pointer">Terms of Service</span>
+                <span>·</span>
+                <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Secure & Trusted</button>
               </div>
             </div>
           </div>
-          
-          {/* Legal Disclaimer */}
-          <div className="mt-8 pt-6 border-t border-white/10 text-center space-y-3">
-            <div className="flex items-center justify-center space-x-3">
-              <img 
-                src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
-                alt="PSA Licensed" 
-                className="h-5 w-auto"
-              />
-              <p className="text-sm text-white/90">
-                © 2025 WINGS Security Ltd · Licensed by the Private Security Authority (PSA Licence No. 14161) · CRO: 772757 · Fully Insured
-              </p>
-            </div>
-            
-            <div className="text-white/70 text-sm space-y-2">
-              <div>Privacy Policy · Terms of Service · Secure & Trusted</div>
-            </div>
-            
-            <p className="text-xs text-white/60">
-              WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
-            </p>
-          </div>
-        </div>
         </div>
       </div>
     </footer>
