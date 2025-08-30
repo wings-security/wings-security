@@ -62,8 +62,8 @@ const ContactSection = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     toast({
-      title: "Quote Request Sent!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours.",
+      title: "✅ Thanks! We've received your message. We'll get back to you as soon as possible.",
+      description: "",
     });
 
     setFormData({
@@ -106,10 +106,10 @@ const ContactSection = () => {
 
   const services = [
     "Static Guarding",
-    "Event Stewarding / Static Event Guards", 
-    "IRIS Remote Guarding (Coming Soon)",
+    "Event Guards", 
+    "CCTV Monitoring",
+    "IRIS Remote Guarding",
     "Security Consultation",
-    "Risk Assessment",
     "Other"
   ];
 
@@ -125,9 +125,9 @@ const ContactSection = () => {
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-display font-bold text-wings-black">
-              Request Your
+              Send Us a
               <span className="block text-wings-gradient bg-gradient-primary bg-clip-text text-transparent">
-                Free Security Quote
+                Message
               </span>
             </h2>
             
@@ -185,10 +185,21 @@ const ContactSection = () => {
             <div className="lg:col-span-3">
               <Card className={`glass-card border border-white/20 ${isVisible ? 'wings-scale-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
                 <CardHeader>
-                  <CardTitle className="text-xl font-display font-bold text-wings-black">Get Your Free Quote</CardTitle>
+                  <CardTitle className="text-xl font-display font-bold text-wings-black">Send Us a Message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form 
+                    onSubmit={handleSubmit} 
+                    name="contact-message" 
+                    method="POST" 
+                    data-netlify="true" 
+                    data-netlify-recaptcha="true" 
+                    netlify-honeypot="bot-field"
+                    action="/thank-you"
+                    className="space-y-6"
+                  >
+                    <input type="hidden" name="form-name" value="contact-message" />
+                    <input type="hidden" name="bot-field" />
                     {/* Personal Information */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -287,6 +298,9 @@ const ContactSection = () => {
                       />
                     </div>
 
+                    {/* reCAPTCHA */}
+                    <div className="g-recaptcha" data-sitekey="6LdHb7YrAAAAAJEnPnAdMMjvJMaHElfejAdkllXp"></div>
+
                     {/* Submit Button */}
                     <Button
                       type="submit"
@@ -296,11 +310,11 @@ const ContactSection = () => {
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending Request...
+                          Sending Message...
                         </>
                       ) : (
                         <>
-                          Request a Free Quote
+                          Send Message
                           <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}

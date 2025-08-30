@@ -91,7 +91,7 @@ const Header = () => {
               </a>
             </div>
             <Button 
-              onClick={() => scrollToSection('quote')}
+              onClick={() => scrollToSection('contact')}
               className="btn-wings-primary font-bold"
             >
               Request a Free Quote
@@ -152,7 +152,7 @@ const Header = () => {
                   </a>
                 </div>
                 <Button 
-                  onClick={() => scrollToSection('quote')}
+                  onClick={() => scrollToSection('contact')}
                   className="btn-wings-primary w-full font-bold"
                 >
                   Request a Free Quote

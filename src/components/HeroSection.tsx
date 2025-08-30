@@ -54,7 +54,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={() => scrollToSection('quote')} className="btn-wings-primary group font-bold shadow-2xl">
+              <Button onClick={() => scrollToSection('contact')} className="btn-wings-primary group font-bold shadow-2xl">
                 Get a Quote
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>

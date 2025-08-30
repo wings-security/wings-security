@@ -177,14 +177,14 @@ const ServicesSection = () => {
                     {service.available ? (
                       <Button 
                         onClick={() => {
-                          const element = document.getElementById('quote');
+                          const element = document.getElementById('contact');
                           if (element) {
                             element.scrollIntoView({ behavior: 'smooth' });
                           }
                         }}
                         className="btn-wings-primary w-full group font-bold"
                       >
-                        Request a Free Quote
+                        Send Us a Quote
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     ) : (

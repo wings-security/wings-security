@@ -66,7 +66,7 @@ const CareersSection = () => {
     try {
       // Show success message
       toast({
-        title: "✅ Thanks! We've received your message. We'll be in touch shortly.",
+        title: "✅ Thanks! We've received your message. We'll get back to you as soon as possible.",
         description: "",
       });
 
