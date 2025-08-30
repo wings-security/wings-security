@@ -26,7 +26,7 @@ const Header = () => {
     { label: 'Home', id: 'home' },
     { label: 'Services', id: 'services' },
     { label: 'About', id: 'about' },
-    { label: 'Careers', href: '/careers' },
+    { label: 'Careers', id: 'careers' },
     { label: 'Contact', id: 'contact' },
   ];
 
@@ -52,23 +52,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              item.href ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="btn-wings-ghost text-sm font-medium transition-colors hover:text-primary"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <button
+              <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="btn-wings-ghost text-sm font-medium transition-colors hover:text-primary"
               >
                 {item.label}
               </button>
-              )
             ))}
           </div>
 
@@ -101,7 +91,7 @@ const Header = () => {
               </a>
             </div>
             <Button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('quote')}
               className="btn-wings-primary font-bold"
             >
               Request a Free Quote
@@ -126,23 +116,13 @@ const Header = () => {
           <div className="md:hidden mt-4 py-4 border-t border-border bg-background/95 backdrop-blur-md rounded-lg">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                item.href ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="btn-wings-ghost text-left py-3 px-4 text-foreground hover:text-primary"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <button
+                <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="btn-wings-ghost text-left py-3 px-4 text-foreground hover:text-primary"
                 >
                   {item.label}
                 </button>
-                )
               ))}
               <div className="px-4 pt-2 space-y-3">
                 <div className="flex justify-center space-x-4">
@@ -172,7 +152,7 @@ const Header = () => {
                   </a>
                 </div>
                 <Button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('quote')}
                   className="btn-wings-primary w-full font-bold"
                 >
                   Request a Free Quote

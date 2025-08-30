@@ -3,33 +3,46 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Send, Loader2, Shield } from 'lucide-react';
+import { Send, Loader2, Upload, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const QuoteForm = () => {
+const CareersSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fileName, setFileName] = useState('');
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    company: '',
     phone: '',
-    service: '',
-    projectDetails: '',
+    role: '',
     gdprConsent: false
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData(prev => ({ ...prev, service: value }));
+    setFormData(prev => ({ ...prev, role: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        toast({
+          title: "File Too Large",
+          description: "Please upload a file smaller than 5MB.",
+          variant: "destructive",
+        });
+        return;
+      }
+      setFileName(file.name);
+    }
   };
 
   const handleCheckboxChange = (checked: boolean) => {
@@ -51,9 +64,7 @@ const QuoteForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission - in production this would be handled by Netlify
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      // Show success message
       toast({
         title: "✅ Thanks! We've received your message and will get back to you shortly.",
         description: "",
@@ -63,16 +74,15 @@ const QuoteForm = () => {
       setFormData({
         fullName: '',
         email: '',
-        company: '',
         phone: '',
-        service: '',
-        projectDetails: '',
+        role: '',
         gdprConsent: false
       });
+      setFileName('');
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to submit request. Please try again.",
+        description: "Failed to submit application. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -81,31 +91,46 @@ const QuoteForm = () => {
   };
 
   return (
-    <section id="quote" className="py-20 bg-gradient-to-br from-background to-secondary/10">
+    <section id="careers" className="py-20 bg-background-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16 space-y-4">
+            <div className="inline-flex items-center space-x-2 glass-card border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
+              <Users className="h-4 w-4" />
+              <span>Join Our Team</span>
+            </div>
+            
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
-              Request a Free Quote
+              Careers at WINGS Security
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Get a tailored security solution for your business within 24 hours
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Interested in joining WINGS Security? We're always looking for qualified static and event security professionals.
             </p>
           </div>
 
           <Card className="glass-card border-wings-grey/20 bg-white/95 backdrop-blur-md">
             <form 
               onSubmit={handleSubmit}
-              name="quote-request" 
+              name="careers-application" 
               method="POST" 
               data-netlify="true" 
               data-netlify-recaptcha="true" 
               netlify-honeypot="bot-field"
               action="/thank-you"
+              encType="multipart/form-data"
               className="p-8 space-y-6"
             >
-              <input type="hidden" name="form-name" value="quote-request" />
+              <input type="hidden" name="form-name" value="careers-application" />
               <input type="hidden" name="bot-field" />
+
+              <div className="text-center mb-8">
+                <h3 className="text-xl font-display font-bold text-foreground mb-2">
+                  Apply Now
+                </h3>
+                <p className="text-muted-foreground">
+                  All applications are sent directly to info@wingssecurity.ie
+                </p>
+              </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -124,8 +149,24 @@ const QuoteForm = () => {
                 </div>
 
                 <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-sm font-medium">
+                    Phone Number *
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full"
+                    placeholder="+353 87 369 4378"
+                  />
+                </div>
+
+                <div className="space-y-2">
                   <Label htmlFor="email" className="text-sm font-medium">
-                    Email Address *
+                    Email *
                   </Label>
                   <Input
                     id="email"
@@ -135,69 +176,51 @@ const QuoteForm = () => {
                     onChange={handleInputChange}
                     required
                     className="w-full"
-                    placeholder="your.email@company.ie"
+                    placeholder="your.email@example.ie"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="company" className="text-sm font-medium">
-                    Company
+                  <Label htmlFor="role" className="text-sm font-medium">
+                    Role applying for *
                   </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="w-full"
-                    placeholder="Your company name"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-sm font-medium">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full"
-                    placeholder="+353 87 369 4378"
-                  />
+                  <Select onValueChange={handleSelectChange} name="role" required>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="static-security">Static Security</SelectItem>
+                      <SelectItem value="event-guard">Event Guard</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="service" className="text-sm font-medium">
-                  Service of Interest
+                <Label htmlFor="cv-upload" className="text-sm font-medium">
+                  File Upload (CV) *
                 </Label>
-                <Select onValueChange={handleSelectChange} name="service">
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="static-guarding">Static Guarding</SelectItem>
-                    <SelectItem value="event-security">Event Security</SelectItem>
-                    <SelectItem value="stewarding">Stewarding</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="projectDetails" className="text-sm font-medium">
-                  Project Details
-                </Label>
-                <Textarea
-                  id="projectDetails"
-                  name="projectDetails"
-                  value={formData.projectDetails}
-                  onChange={handleInputChange}
-                  className="w-full min-h-[120px]"
-                  placeholder="Please describe your security requirements, location, schedule, and any specific needs..."
-                />
+                <div className="relative">
+                  <Input
+                    id="cv-upload"
+                    name="cv"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleFileChange}
+                    required
+                    className="w-full file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                  />
+                  {fileName && (
+                    <div className="mt-2 flex items-center space-x-2 text-sm text-muted-foreground">
+                      <Upload className="h-4 w-4" />
+                      <span>{fileName}</span>
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  PDF or DOC format only, maximum 5MB
+                </p>
               </div>
 
               <div className="flex items-start space-x-3">
@@ -222,27 +245,29 @@ const QuoteForm = () => {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Submitting Request...
+                    Submitting Application...
                   </>
                 ) : (
                   <>
-                    Request Free Quote
+                    Submit Application
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </Button>
 
-              <div className="text-center pt-4">
-                <div className="text-sm text-muted-foreground mb-2">
-                  Quote requests are sent directly to{' '}
+              <div className="text-center pt-4 space-y-2">
+                <p className="text-sm text-muted-foreground">
+                  Applications are sent directly to{' '}
                   <a href="mailto:info@wingssecurity.ie" className="text-primary hover:underline font-medium">
                     info@wingssecurity.ie
                   </a>
-                </div>
-                <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
-                  <Shield className="h-4 w-4 text-primary" />
-                  <span>24-hour response guarantee • No obligation • Free consultation</span>
-                </div>
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Questions? Call us at{' '}
+                  <a href="tel:+353873694378" className="text-primary hover:underline font-medium">
+                    +353 87 369 4378
+                  </a>
+                </p>
               </div>
             </form>
           </Card>
@@ -252,4 +277,4 @@ const QuoteForm = () => {
   );
 };
 
-export default QuoteForm;
+export default CareersSection;

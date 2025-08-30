@@ -48,12 +48,18 @@ const ContactForm = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "Message Sent!",
-        description: "We'll get back to you as quickly as possible.",
+        title: "✅ Thanks! We've received your message and will get back to you shortly.",
+        description: "",
       });
 
-      // Redirect to thank you page
-      window.location.href = '/thank-you';
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        message: '',
+        gdprConsent: false
+      });
     } catch (error) {
       toast({
         title: "Error",
@@ -229,7 +235,7 @@ const ContactForm = () => {
                     </Label>
                   </div>
 
-                  <div data-netlify-recaptcha="true"></div>
+                  <div className="g-recaptcha" data-sitekey="6LdHb7YrAAAAAJEnPnAdMMjvJMaHElfejAdkllXp"></div>
 
                   <Button
                     type="submit"

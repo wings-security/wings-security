@@ -72,26 +72,16 @@ const Footer = () => {
                   { label: 'Home', id: 'home' },
                   { label: 'Services', id: 'services' },
                   { label: 'About Us', id: 'about' },
-                  { label: 'Careers', href: '/careers' },
+                  { label: 'Careers', id: 'careers' },
                   { label: 'Contact', id: 'contact' }
                 ].map((link) => (
-                  link.href ? (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      className="block text-white/70 hover:text-primary transition-colors text-sm"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <button
+                  <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
                     className="block text-white/70 hover:text-primary transition-colors text-sm"
                   >
                     {link.label}
                   </button>
-                  )
                 ))}
               </div>
             </div>
@@ -191,7 +181,7 @@ const Footer = () => {
               <span>•</span>
               <button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About Us</button>
               <span>•</span>
-              <a href="/careers" className="hover:text-primary transition-colors">Careers</a>
+              <button onClick={() => scrollToSection('careers')} className="hover:text-primary transition-colors">Careers</button>
               <span>•</span>
               <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact Us</button>
               <span>•</span>
@@ -222,9 +212,24 @@ const Footer = () => {
           </div>
           
           {/* Legal Disclaimer */}
-          <div className="mt-8 pt-6 border-t border-white/10">
-            <p className="text-center text-xs text-white/60">
-              WINGS Security Ltd is licensed by the Private Security Authority (Licence No. 14161) and fully insured to operate in Ireland.
+          <div className="mt-8 pt-6 border-t border-white/10 text-center space-y-3">
+            <div className="flex items-center justify-center space-x-3">
+              <img 
+                src="/lovable-uploads/eac190f7-5b85-4894-8bf0-136c102d125f.png" 
+                alt="PSA Licensed" 
+                className="h-5 w-auto"
+              />
+              <p className="text-sm text-white/90">
+                © 2025 WINGS Security Ltd · Licensed by the Private Security Authority (PSA Licence No. 14161) · CRO: 772757 · Fully Insured
+              </p>
+            </div>
+            
+            <div className="text-white/70 text-sm">
+              Privacy Policy · Terms of Service · Secure & Trusted
+            </div>
+            
+            <p className="text-xs text-white/60">
+              WINGS Security is fully insured and operating under licensing application review (expected approval within weeks).
             </p>
           </div>
         </div>
