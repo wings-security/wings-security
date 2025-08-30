@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import TrustBullets from '@/components/TrustBullets';
-import heroImage from '@/assets/irish-security-guard-retail.jpg';
+import heroImage from '@/assets/hero-security-team.jpg';
 
 const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -17,7 +17,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Professional Irish security guard on duty at retail location"
+          alt="Professional Irish security team at corporate location"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -55,7 +55,7 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button onClick={() => scrollToSection('quote')} className="btn-wings-primary group font-bold shadow-2xl">
-                Request a Free Quote
+                Get a Quote
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
 

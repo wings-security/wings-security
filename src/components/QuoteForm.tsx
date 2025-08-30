@@ -55,7 +55,7 @@ const QuoteForm = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "✅ Thanks! We've received your message and will get back to you shortly.",
+        title: "✅ Thanks! We've received your message. We'll be in touch shortly.",
         description: "",
       });
 
@@ -86,7 +86,7 @@ const QuoteForm = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-foreground mb-4">
-              Request a Free Quote
+              Send Us a Quote
             </h2>
             <p className="text-lg text-muted-foreground">
               Get a tailored security solution for your business within 24 hours
@@ -171,7 +171,7 @@ const QuoteForm = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="service" className="text-sm font-medium">
-                  Service of Interest
+                  Services Interested In
                 </Label>
                 <Select onValueChange={handleSelectChange} name="service">
                   <SelectTrigger className="w-full">
@@ -179,8 +179,9 @@ const QuoteForm = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="static-guarding">Static Guarding</SelectItem>
-                    <SelectItem value="event-security">Event Security</SelectItem>
-                    <SelectItem value="stewarding">Stewarding</SelectItem>
+                    <SelectItem value="event-guards">Event Guards</SelectItem>
+                    <SelectItem value="cctv-monitoring">CCTV Monitoring</SelectItem>
+                    <SelectItem value="iris-remote-guarding">IRIS Remote Guarding</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
@@ -226,7 +227,7 @@ const QuoteForm = () => {
                   </>
                 ) : (
                   <>
-                    Request Free Quote
+                    Send Us a Quote
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}

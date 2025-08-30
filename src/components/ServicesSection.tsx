@@ -9,8 +9,9 @@ import {
   Zap,
   UserCheck
 } from 'lucide-react';
-import staticGuardImage from '@/assets/security-guard-static.jpg';
-import eventSecurityImage from '@/assets/event-security.jpg';
+import staticGuardImage from '@/assets/static-guard-irish.jpg';
+import eventSecurityImage from '@/assets/event-security-irish.jpg';
+import irisImage from '@/assets/iris-ai-monitoring.jpg';
 
 const ServicesSection = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
@@ -86,7 +87,7 @@ const ServicesSection = () => {
         "Advanced technology",
         "Proactive deterrence"
       ],
-      image: "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+      image: irisImage,
       iconColor: "text-accent",
       available: false,
       comingSoon: true

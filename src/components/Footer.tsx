@@ -185,9 +185,9 @@ const Footer = () => {
               <span>•</span>
               <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact Us</button>
               <span>•</span>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Privacy Policy</button>
+              <span className="hover:text-primary transition-colors cursor-pointer">Privacy Policy</span>
               <span>•</span>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Terms</button>
+              <span className="hover:text-primary transition-colors cursor-pointer">Terms of Service</span>
             </div>
             
             {/* Right - Compliance Info */}
@@ -224,8 +224,8 @@ const Footer = () => {
               </p>
             </div>
             
-            <div className="text-white/70 text-sm">
-              Privacy Policy · Terms of Service · Secure & Trusted
+            <div className="text-white/70 text-sm space-y-2">
+              <div>Privacy Policy · Terms of Service · Secure & Trusted</div>
             </div>
             
             <p className="text-xs text-white/60">

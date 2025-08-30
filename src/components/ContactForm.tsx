@@ -48,7 +48,7 @@ const ContactForm = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "✅ Thanks! We've received your message and will get back to you shortly.",
+        title: "✅ Thanks! We've received your message. We'll be in touch shortly.",
         description: "",
       });
 
