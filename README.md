@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# WINGS Security Website
 
-## Project info
+Official website for WINGS Security Ltd.
 
-**URL**: https://lovable.dev/projects/9854a316-99a2-4f0d-bc9b-79e2ba9d6503
+## Company Details
 
-## How can I edit this code?
+- Website: [https://wingssecurity.ie](https://wingssecurity.ie)
+- Company: WINGS Security Ltd.
+- PSA Licence: 14161
+- CRO: 772757
+- Email: info@wingssecurity.ie
+- Phone: +353 87 369 4378
+- Address: Block 1, Blanchardstown Corporate Park, Ballycoolin Road, Dublin 15, D15 AKK1
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- React 18
+- Vite
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9854a316-99a2-4f0d-bc9b-79e2ba9d6503) and start prompting.
+## Local Development
 
-Changes made via Lovable will be committed automatically to this repo.
+Prerequisites:
 
-**Use your preferred IDE**
+- Node.js 18+
+- npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Run locally:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/wings-security/wings-security.git
+cd wings-security
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Default local URL:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+http://127.0.0.1:8080/
+```
 
-**Use GitHub Codespaces**
+## Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create a production build:
 
-## What technologies are used for this project?
+```bash
+npm run build
+```
 
-This project is built with:
+Preview the production build locally:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run preview
+```
 
-## How can I deploy this project?
+## Key Pages and Routes
 
-Simply open [Lovable](https://lovable.dev/projects/9854a316-99a2-4f0d-bc9b-79e2ba9d6503) and click on Share -> Publish.
+- `/` - Main single-page website
+- `/careers` - Careers landing page
+- `/privacy-policy` - Privacy Policy
+- `/terms-of-service` - Terms of Service
 
-## Can I connect a custom domain to my Lovable project?
+## Forms
 
-Yes, you can!
+The site uses Web3Forms for:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Contact enquiries
+- Careers applications
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Careers submissions also instruct applicants to email their CV to `info@wingssecurity.ie`.
+
+## SEO and Public Files
+
+Important public assets and metadata:
+
+- `public/site.webmanifest`
+- `public/sitemap.xml`
+- `public/llms.txt`
+- `public/opensearch.xml`
+- favicon files in `public/`
+
+## Deployment
+
+This project is intended to deploy on Vercel.
+
+Recommended workflow:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push origin main
+```
+
+Then deploy or redeploy from Vercel.
+
+## Repo Notes
+
+- This repo is no longer managed through Lovable.
+- Use GitHub as the source of truth.
+- Keep the site as a single-page layout with anchor navigation for the main marketing site.
+- Run `npm run build` before pushing changes.
+
+## Maintainer Workflow
+
+For future edits:
+
+1. Pull the latest `main`
+2. Create your changes locally
+3. Run `npm run build`
+4. Commit with a clear message
+5. Push to `main` or open a pull request if needed
+
+## Contact
+
+For business or website updates:
+
+- Email: info@wingssecurity.ie
+- Phone: +353 87 369 4378
