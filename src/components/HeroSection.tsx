@@ -47,18 +47,6 @@ const HeroSection = () => {
             Professional, licensed, and insured - trusted by Irish businesses nationwide.
           </p>
 
-          <div className="md:hidden mt-4 flex flex-wrap justify-center gap-2">
-            <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-primary text-black">
-              Primary #05D04B
-            </span>
-            <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-black text-primary border border-white/20">
-              Black #000000
-            </span>
-            <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-white text-black border border-black/20">
-              White #FFFFFF
-            </span>
-          </div>
-
           <div className="mt-6 md:mt-7 flex justify-center">
             <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 backdrop-blur-sm bg-white/5 rounded-2xl sm:rounded-full px-4 sm:px-6 py-3">
               <img
