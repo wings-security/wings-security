@@ -45,9 +45,9 @@ const Header = () => {
     <header className="sticky top-0 z-50">
       <div className="w-full overflow-hidden">
         {announcementVisible && (
-          <div className="bg-primary text-black text-sm font-medium py-2 px-4">
+          <div className="bg-primary text-black text-sm font-medium py-2 px-4 pt-[max(env(safe-area-inset-top),0.5rem)] sm:pt-2">
             <div className="container mx-auto flex items-center justify-center gap-6 relative">
-              <span className="text-center">
+              <span className="text-center text-[11px] sm:text-sm leading-tight pr-6 sm:pr-0">
                 PSA Licensed Security - Free Consultation - Email{' '}
                 <a href="mailto:info@wingssecurity.ie" className="font-bold underline">
                   info@wingssecurity.ie
@@ -55,7 +55,7 @@ const Header = () => {
               </span>
               <button
                 onClick={() => setAnnouncementVisible(false)}
-                className="absolute right-0 text-black/60 hover:text-black transition-colors"
+                className="absolute right-0 text-black/60 hover:text-black transition-colors text-base leading-none"
                 aria-label="Dismiss announcement"
               >
                 ✕
