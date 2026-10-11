@@ -1,0 +1,9 @@
+{
+  "generator": "Built-in image editing",
+  "path": "public/images/hero-guarding-branded.webp",
+  "references": [
+    "public/images/hero-guarding.webp",
+    "public/brand/wings-wordmark.png"
+  ],
+  "prompt": "Precise logo correction only. Image 1 is the existing hero edit target. Image 2 is the exact supplied WINGS SECURITY logo asset to insert unchanged. Both chest prints must be crisp actual asset artwork, not generated approximate letters. Replace the woman's existing tiny distorted logo: put a larger straight readable green original wordmark on her clear viewer-left upper chest panel, ABOVE the arm, approximately x=875 to1025 y=510 to535 in 1536x1024 coordinates. This is her right chest, chosen for visibility. The man should have the identical original wordmark approx150 pixels wide on his upper viewer-right chest, x=1300 to1450 y=455 to480. Treat both as transfer printing with subtle perspective but preserve EXACT original letterforms and wing symbol from image2, full phrase reads 'wings security'. No rectangle background. Do not redraw text. Change nothing else: preserve people, faces, hands, clothing, radio, scene, lighting, image dimensions and negative space."
+}

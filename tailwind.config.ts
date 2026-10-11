@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -19,11 +20,11 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'sans': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'display': ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Goli fallback
-				'body': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Morgon fallback
-				'goli': ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				'morgon': ['Inter', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'sans': ['Manrope', 'sans-serif'],
+				'display': ['Space Grotesk', 'sans-serif'],
+				'body': ['Manrope', 'sans-serif'],
+				'goli': ['Space Grotesk', 'sans-serif'],
+				'morgon': ['Manrope', 'sans-serif'],
 			},
 			colors: {
 				// Core design tokens
@@ -142,5 +143,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;

@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target": "ES2020", "module": "none", "lib": ["ES2020", "DOM"], "types": [], "strict": true, "skipLibCheck": true, "outFile": ".google-script/Code.js" },
+  "include": ["google-apps-script/Code.ts", "google-apps-script/globals.d.ts"]
+}

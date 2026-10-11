@@ -1,0 +1,37 @@
+{
+  "generator": "Built-in image generation",
+  "assets": [
+    {
+      "path": "public/images/sector-residential.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: An Irish apartment development courtyard, secure resident entrance with intercom, natural stone and planting, quiet early morning. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-education.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: An Irish university campus pedestrian entrance, academic buildings, subtle access gate, autumn morning, no students close up. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-healthcare.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: A modern Irish healthcare facility entrance with accessible dropoff, clean glass doors and landscaped approach, calm daylight, no patients or medical signage. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-public-sector.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: An Irish civic administrative building public entrance with limestone facade and orderly controlled pedestrian access, overcast daylight. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-pharmaceutical.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: A pharmaceutical manufacturing campus perimeter in Ireland, modern clean industrial buildings, controlled vehicle gate, green landscaping, dawn. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-hospitality.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: An elegant Irish hotel entrance at evening, discreet concierge desk visible through glass, warm welcoming light, no guests in focus. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-small-business.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: A small Irish business park unit entrance, practical shutter and secure pedestrian door, planted forecourt, early morning. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    },
+    {
+      "path": "public/images/sector-corporate.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: WINGS Security sector-page environmental photography, landscape 1536x1024. Scene: A contemporary Irish corporate office atrium with access-control turnstiles and spacious architecture, late afternoon natural light. Style: restrained cinematic architectural editorial photograph, physically believable materials, subtle forest-green accents, realistic Irish weather, understated professional security context. Composition: wide horizontal, clear relevant entrance details, no exaggerated wide-angle. Avoid readable text, logos, watermarks, fake badges, portraits, unrealistic security equipment. Illustrative environmental imagery, not evidence of a real WINGS assignment."
+    }
+  ]
+}

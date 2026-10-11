@@ -37,7 +37,7 @@ const TermsOfService = () => {
           </div>
           <div>
             <h1 className="text-3xl font-display font-bold text-foreground">Terms of Service</h1>
-            <p className="text-sm text-muted-foreground mt-1">Last updated: February 2026</p>
+            <p className="text-sm text-muted-foreground mt-1">Last updated: October 2026</p>
           </div>
         </div>
 
@@ -75,6 +75,7 @@ const TermsOfService = () => {
               A binding contract is only formed when both parties have agreed in writing (including by email) to
               specific service terms, scope, duration, and pricing.
             </p>
+            <p className="text-muted-foreground leading-relaxed mb-3">Our PSA licence covers static and event guarding. Installation, monitoring and door-supervision enquiries are coordinated with specialist providers. The delivery provider, appropriate licensing, responsibilities and scope must be confirmed in the written agreement before work starts.</p>
             <p className="text-muted-foreground leading-relaxed mb-3">All security services provided by WINGS Security Ltd. are subject to:</p>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span>A separate written service agreement or contract signed by both parties</span></li>
@@ -90,7 +91,8 @@ const TermsOfService = () => {
               We make every effort to ensure that the information on this website is accurate and up to date.
               However, we do not warrant that the content is error-free, complete, or current. We reserve the
               right to modify or withdraw content at any time without notice. Nothing on this website constitutes
-              legal, financial, or professional advice.
+              legal, financial, or professional advice. WYNTRA and IRIS are development-stage initiatives,
+              not currently available platform services.
             </p>
           </section>
 
@@ -140,9 +142,8 @@ const TermsOfService = () => {
               >
                 Privacy Policy
               </button>
-              , which forms part of these Terms. By using this website, you consent to the processing of your
-              personal data as described in the Privacy Policy, in accordance with the GDPR and the Data
-              Protection Acts 1988-2018.
+              , which explains how we process personal data and your rights. Browsing this website does not
+              itself constitute consent to all processing. Where consent is required, we request it separately.
             </p>
           </section>
 

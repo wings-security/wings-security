@@ -1,231 +1,90 @@
-import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Send, Loader2, MessageSquare, Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { useEffect, useId, useRef, useState } from 'react';
+import type { FormEvent, JSX } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { ArrowUpRight, CheckCircle2, Loader2 } from 'lucide-react';
+import { enquiryTypes, publicPaths, sectors } from '@/data/site';
+import { formText, submissionError, submitEnquiry } from '@/lib/submissions';
+import { submitSecureForm, usesServerForms } from '@/lib/secure-submissions';
+import TurnstileChallenge from '@/components/site/TurnstileChallenge';
 
-const WEB3FORMS_ACCESS_KEY = '95eec0fa-47e5-40ad-a3ad-2f43a7a380da';
-
-const ContactForm = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    enquiryType: 'General Enquiry',
-    message: '',
-    gdprConsent: false,
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleCheckboxChange = (checked: boolean) => {
-    setFormData((prev) => ({ ...prev, gdprConsent: checked }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.gdprConsent) {
-      toast({
-        title: 'GDPR Consent Required',
-        description: 'Please tick the consent box to proceed.',
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
+export default function ContactForm(): JSX.Element {
+  const prefix: string = useId();
+  const [params] = useSearchParams();
+  const requested: string | null = params.get('service');
+  const sector: string = sectors.find((item) => item.slug === params.get('sector'))?.title || '';
+  const initial: string = requested && enquiryTypes.includes(requested) ? requested : 'General enquiry';
+  const source: string | null = params.get('source');
+  const [service, setService] = useState<string>('General enquiry');
+  const [ready, setReady] = useState<boolean>(false);
+  useEffect((): void => { setReady(true); }, []);
+  useEffect((): void => { setService(initial); }, [initial]);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string>('');
+  const busy = useRef<boolean>(false);
+  const secure: boolean = usesServerForms('sales');
+  const requestId = useRef<string>('');
+  const [token, setToken] = useState<string | null>(null);
+  const [spamError, setSpamError] = useState<string>('');
+  const [challengeReset, setChallengeReset] = useState<number>(0);
+  const [leadId, setLeadId] = useState<string>('');
+  const onSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+    if (busy.current) return;
+    const form: HTMLFormElement = event.currentTarget;
+    const data: FormData = new FormData(form);
+    if (formText(data, 'website')) { setError('Please leave the website field empty.'); setStatus('error'); return; }
+    if (!formText(data, 'fullName') || !formText(data, 'message')) { setError('Please enter your name and a message, not just spaces.'); setStatus('error'); return; }
+    if (data.get('consent') !== 'on') { setError('Please confirm the privacy notice before submitting.'); setStatus('error'); return; }
+    busy.current = true;
+    setStatus('sending');
+    setError('');
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New ${formData.enquiryType}: WINGS Security`,
-          from_name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone || 'Not provided',
-          enquiry_type: formData.enquiryType,
-          message: formData.message || 'No message provided',
-          botcheck: '',
-        }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        toast({ title: 'Message sent', description: "We'll respond within 24 hours." });
-        setFormData({ fullName: '', email: '', phone: '', enquiryType: 'General Enquiry', message: '', gdprConsent: false });
+      if (secure) {
+        if (!token) throw new Error('Complete the security check first.');
+        if (!requestId.current) requestId.current = crypto.randomUUID();
+        const receipt = await submitSecureForm({ kind: 'sales', requestId: requestId.current, token, sourcePage: source && publicPaths.includes(source) ? source : window.location.pathname, consent: true, website: '',
+          data: { name: formText(data, 'fullName'), email: formText(data, 'email'), phone: formText(data, 'phone'), company: formText(data, 'company'), service: formText(data, 'service'), sector,
+            location: formText(data, 'location'), startDate: formText(data, 'startDate'), message: formText(data, 'message') } });
+        setLeadId(receipt.leadId);
+        requestId.current = '';
       } else {
-        throw new Error(result.message);
+      await submitEnquiry({
+        subject: `New ${formText(data, 'service')} - WINGS Security`,
+        from_name: formText(data, 'fullName'), email: formText(data, 'email'),
+        phone: formText(data, 'phone'), company: formText(data, 'company'),
+        enquiry_type: formText(data, 'service'), sector, location: formText(data, 'location'),
+        start_date: formText(data, 'startDate'), message: formText(data, 'message'),
+        gdpr_consent: data.get('consent') === 'on' ? 'Yes' : 'No', botcheck: '',
+      }, null);
       }
-    } catch {
-      toast({
-        title: 'Failed to send',
-        description: 'Please email info@wingssecurity.ie directly.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+      setStatus('success');
+      form.reset();
+    } catch (caught: unknown) {
+      const detail: string = submissionError(caught);
+      console.error('Enquiry delivery failed', { endpoint: secure ? 'Vercel forms' : 'Web3Forms', detail });
+      setError(detail);
+      setStatus('error');
+    } finally { busy.current = false; if (secure) setChallengeReset((value: number): number => value + 1); }
   };
-
-  const contactInfo = [
-    { icon: Mail, title: 'Email', detail: 'info@wingssecurity.ie', href: 'mailto:info@wingssecurity.ie' },
-    { icon: Phone, title: 'Call', detail: '+353 87 369 4378', href: 'tel:+353873694378' },
-    {
-      icon: MessageCircle,
-      title: 'WhatsApp',
-      detail: 'Message us directly',
-      href: 'https://wa.me/353873694378?text=Hi%20WINGS%20Security%2C%20I%27d%20like%20to%20enquire%20about%20your%20security%20services.',
-    },
-    {
-      icon: MapPin,
-      title: 'Location',
-      detail: 'Blanchardstown Corporate Park, Dublin 15',
-      href: 'https://maps.google.com/?q=Blanchardstown+Corporate+Park+Dublin+15',
-    },
-    { icon: Clock, title: 'Response Time', detail: '24 hours', href: null },
-  ];
-
-  return (
-    <section id="contact" className="py-20 bg-background-secondary">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <div className="inline-flex items-center space-x-2 glass-card border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
-              <MessageSquare className="h-4 w-4" />
-              <span>Contact Us</span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold text-foreground">Get in Touch</h2>
-            <p className="text-lg text-muted-foreground">Ready to discuss your security needs? We respond within 24 hours.</p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-display font-bold text-foreground">Contact Information</h3>
-              <div className="space-y-4">
-                {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-center space-x-4">
-                    <div className="w-12 h-12 glass-card rounded-full flex items-center justify-center flex-shrink-0">
-                      <info.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">{info.title}</p>
-                      {info.href ? (
-                        <a href={info.href} className="text-base font-medium text-foreground hover:text-primary transition-colors">
-                          {info.detail}
-                        </a>
-                      ) : (
-                        <p className="text-base font-medium text-foreground">{info.detail}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-xl overflow-hidden border border-border">
-                <iframe
-                  title="WINGS Security Ltd - Dublin 15 Office"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380.5!2d-6.419700!3d53.394600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDIzJzQwLjYiTiA2wrAyNScxMC45Ilc!5e0!3m2!1sen!2sie!4v1"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              <p className="text-xs text-muted-foreground">
-                Block 1, Blanchardstown Corporate Park, Ballycoolin Road, Dublin 15, D15 AKK1
-              </p>
-            </div>
-
-            <div>
-              <Card className="glass-card border-wings-grey/20 bg-white/95 backdrop-blur-md">
-                <form onSubmit={handleSubmit} className="p-8 space-y-5">
-                  <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
-                  <h3 className="text-xl font-display font-bold text-foreground text-center">Send us a Message</h3>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="fullName">Full Name *</Label>
-                      <Input id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} required placeholder="Your full name" />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} required placeholder="your@email.ie" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="phone">Phone Number (optional)</Label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} placeholder="+353 87 369 4378" />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label>Enquiry Type *</Label>
-                    <Select value={formData.enquiryType} onValueChange={(value) => setFormData((prev) => ({ ...prev, enquiryType: value }))}>
-                      <SelectTrigger className="h-12 bg-white border-border text-foreground shadow-sm">
-                        <SelectValue placeholder="Select enquiry type" />
-                      </SelectTrigger>
-                      <SelectContent className="z-[80] bg-white border-border shadow-2xl">
-                        <SelectItem className="text-base" value="General Enquiry">General Enquiry</SelectItem>
-                        <SelectItem className="text-base" value="Request a Quote">Request a Quote</SelectItem>
-                        <SelectItem className="text-base" value="Business Partnership / Subcontracting">Business Partnership / Subcontracting</SelectItem>
-                        <SelectItem className="text-base" value="Other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="min-h-[110px] relative z-0"
-                      placeholder="Describe your security requirements..."
-                    />
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <Checkbox id="gdprConsent" checked={formData.gdprConsent} onCheckedChange={handleCheckboxChange} />
-                    <Label htmlFor="gdprConsent" className="text-sm leading-relaxed">
-                      I consent to WINGS Security storing my details in compliance with GDPR. *
-                    </Label>
-                  </div>
-
-                  <Button type="submit" disabled={isSubmitting || !formData.gdprConsent} className="btn-wings-primary w-full font-bold">
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default ContactForm;
+  if (status === 'success') return <div className="form-success" role="status"><CheckCircle2 size={40} /><h2>{secure ? 'Your enquiry has been saved.' : 'Your enquiry has been sent.'}</h2>{leadId && <p>Reference: <strong>{leadId}</strong></p>}<p>Our team will review it during office hours: Monday to Friday, 09:00-17:00. Your enquiry is not a confirmed booking.</p><p>For contact outside office hours, call or WhatsApp +353 87 369 4378.</p><button className="button button-dark" onClick={(): void => setStatus('idle')}>Send another enquiry</button></div>;
+  return <form className="enquiry-form" method="post" onSubmit={onSubmit} aria-busy={status === 'sending'}>
+    <p className="eyebrow">YOUR REQUIREMENTS</p><h2>Let's get the details.</h2><p className="form-intro">Required fields are marked *. Looking for work? <Link to="/careers">Apply here instead.</Link></p>{sector && <p className="enquiry-context">Your sector: <strong>{sector}</strong></p>}
+    <div className="honeypot" aria-hidden="true"><label htmlFor={prefix + 'website'}>Leave this empty</label><input id={prefix + 'website'} name="website" tabIndex={-1} autoComplete="off" /></div>
+    <div className="form-grid">
+      <div className="field"><label htmlFor={prefix + 'name'}>Full name *</label><input id={prefix + 'name'} name="fullName" required autoComplete="name" maxLength={120} placeholder="Your full name" /></div>
+      <div className="field"><label htmlFor={prefix + 'email'}>Email address *</label><input id={prefix + 'email'} name="email" type="email" required autoComplete="email" maxLength={254} placeholder="you@company.ie" /></div>
+      <div className="field"><label htmlFor={prefix + 'company'}>Company (optional)</label><input id={prefix + 'company'} name="company" autoComplete="organization" maxLength={180} placeholder="Company or organisation" /></div>
+      <div className="field"><label htmlFor={prefix + 'phone'}>Phone number (optional)</label><input id={prefix + 'phone'} name="phone" type="tel" autoComplete="tel" maxLength={40} placeholder="Your contact number" /></div>
+      <div className="field field-full"><label htmlFor={prefix + 'service'}>How can we help? *</label><select id={prefix + 'service'} name="service" value={service} onChange={(event): void => setService(event.currentTarget.value)} required>{enquiryTypes.map((type: string) => <option key={type}>{type}</option>)}</select></div>
+      <div className="field"><label htmlFor={prefix + 'location'}>Site / event location (optional)</label><input id={prefix + 'location'} name="location" maxLength={200} placeholder="Town or county" /></div>
+      <div className="field"><label htmlFor={prefix + 'date'}>Preferred start date (optional)</label><input id={prefix + 'date'} name="startDate" type="date" /></div>
+      <div className="field field-full"><label htmlFor={prefix + 'message'}>Tell us what you need *</label><textarea id={prefix + 'message'} name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Dates, hours and the duties you need covered. Please don't include access codes or sensitive site information." /></div>
+    </div>
+    <div className="consent-row"><input id={prefix + 'consent'} name="consent" type="checkbox" required /><label htmlFor={prefix + 'consent'}>I agree to WINGS using my details to respond to this enquiry, as described in the <Link to="/privacy-policy">Privacy Policy</Link>. *</label></div>
+    {secure && <TurnstileChallenge action="sales" reset={challengeReset} onToken={setToken} onError={setSpamError} />}
+    {spamError && <p className="form-error" role="alert">{spamError}</p>}
+    {status === 'error' && <div role="alert" className="form-error"><strong>Your enquiry has not been confirmed.</strong><p>{error}</p><p>Your details are still here. You can try again or email info@wingssecurity.ie.</p></div>}
+    <noscript><p className="form-error">Enable JavaScript to send this form, or email info@wingssecurity.ie.</p></noscript>
+    <button className="button button-green form-submit" type="submit" disabled={!ready || status === 'sending' || secure && !token}>{status === 'sending' ? <><Loader2 className="spin" size={18} /> Sending enquiry...</> : <>Send enquiry <ArrowUpRight size={19} /></>}</button><p className="form-footnote">No obligation. Scope and availability are confirmed before booking.</p>
+  </form>;
+}

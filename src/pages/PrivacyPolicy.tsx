@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Shield } from 'lucide-react';
+import { usesServerForms } from '@/lib/secure-submissions';
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
+  const serverForms: boolean = usesServerForms('sales') || usesServerForms('careers');
+  const legacyForms: boolean = !usesServerForms('sales') || !usesServerForms('careers');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,7 +40,7 @@ const PrivacyPolicy = () => {
           </div>
           <div>
             <h1 className="text-3xl font-display font-bold text-foreground">Privacy Policy</h1>
-            <p className="text-sm text-muted-foreground mt-1">Last updated: February 2026</p>
+            <p className="text-sm text-muted-foreground mt-1">Last updated: October 2026</p>
           </div>
         </div>
 
@@ -63,11 +66,11 @@ const PrivacyPolicy = () => {
             <div className="space-y-3">
               <div className="bg-muted/50 rounded-lg p-4">
                 <p className="font-medium text-foreground text-sm mb-1">Contact / Quote Enquiry Form</p>
-                <p className="text-muted-foreground text-sm">Full name, email address, phone number (optional), message content.</p>
+                <p className="text-muted-foreground text-sm">Full name, email address, enquiry type and message; optionally your phone number, company, location and preferred start date.</p>
               </div>
               <div className="bg-muted/50 rounded-lg p-4">
                 <p className="font-medium text-foreground text-sm mb-1">Careers Application Form</p>
-                <p className="text-muted-foreground text-sm">Full name, email address, phone number, role applied for, CV/resume document.</p>
+                <p className="text-muted-foreground text-sm">Full name, email address, phone number, county and role applied for; your CV if uploaded or emailed separately.</p>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed mt-3">
@@ -110,27 +113,29 @@ const PrivacyPolicy = () => {
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Enquiry and contact data</strong> - retained for 12 months from the date of contact, then securely deleted unless a contract is formed</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Job applications</strong> - retained for 6 months from the date of application, then securely deleted unless employment commences</span></li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Client contract data</strong> - retained for 7 years as required by Irish company law and Revenue requirements</span></li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Client contract data</strong> - our retention period is 7 years, subject to applicable legal obligations and any ongoing claims</span></li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-xl font-display font-bold text-foreground mb-3">5. Data Security</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Form submissions are transmitted via Web3Forms, a GDPR-compliant service, using encrypted HTTPS connections.
-              Data received via form submission is delivered directly to our secured business email at info@wingssecurity.ie,
-              hosted on Google Workspace which is GDPR-compliant and ISO 27001 certified.
-              We do not store form submission data in any database or third-party CRM beyond email.
+              Form submissions are transmitted to Web3Forms using HTTPS for delivery to our business email.
+              Following a successful careers submission, applicant contact details and the role applied for
+              are also sent to our Google Apps Script application-tracking endpoint. The CV is not included
+              in that tracking request. Please do not submit identity documents, licence scans, access codes
+              or other sensitive information through the public forms.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-display font-bold text-foreground mb-3">6. Your Rights Under GDPR</h2>
-            <p className="text-muted-foreground leading-relaxed mb-3">You have the following rights regarding your personal data:</p>
+            <p className="text-muted-foreground leading-relaxed mb-3">Subject to the conditions and exceptions in the GDPR, you have the following rights regarding your personal data:</p>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right of access</strong> - request a copy of the data we hold about you</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to rectification</strong> - request correction of inaccurate data</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to erasure</strong> - request deletion of your data ("right to be forgotten")</span></li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to restriction</strong> - request that we limit processing in the circumstances set out in Article 18</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to withdraw consent</strong> - at any time, without affecting prior processing</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to data portability</strong> - receive your data in a structured, machine-readable format</span></li>
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Right to object</strong> - to processing based on legitimate interests</span></li>
@@ -138,7 +143,8 @@ const PrivacyPolicy = () => {
             <p className="text-muted-foreground leading-relaxed mt-3">
               To exercise any of these rights, email us at{' '}
               <a href="mailto:info@wingssecurity.ie" className="text-primary hover:underline">info@wingssecurity.ie</a>.
-              We will respond within 30 days. If you are unsatisfied with our response, you have the right to lodge a
+              We will respond within one month; where a lawful extension is needed, we will explain it within that month.
+              If you are unsatisfied with our response, you have the right to lodge a
               complaint with the Data Protection Commission of Ireland at{' '}
               <a href="https://www.dataprotection.ie" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">dataprotection.ie</a>.
             </p>
@@ -150,19 +156,22 @@ const PrivacyPolicy = () => {
               Our website uses the following third-party services, each with their own privacy policies:
             </p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Web3Forms</strong> (web3forms.com) - form submission processing. GDPR compliant. Data is transmitted but not stored by Web3Forms beyond delivery.</span></li>
+              {legacyForms && <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Web3Forms</strong> (web3forms.com) - processing enquiries, applications and optional CV attachments for email delivery on forms that still use this integration.</span></li>}
+              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">{serverForms ? 'Google Workspace (Sheets, Drive and Apps Script)' : 'Google Apps Script'}</strong> - {serverForms ? 'restricted enquiry and recruitment tracking, duplicate protection and private CV storage. Sales and recruitment records are kept separately.' : 'recording careers contact details and the role applied for in our application-tracking workflow.'}</span></li>
+              {serverForms && <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Cloudflare Turnstile</strong> - checks for automated spam. Technical information, including IP address and browser signals, may be processed for this security check.</span></li>}
+              {serverForms && <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Resend</strong> - delivery of internal notification emails containing a submission reference and service or role, rather than the CV or full enquiry content.</span></li>}
               <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Google Fonts</strong> - font delivery. IP address may be processed by Google.</span></li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Google Maps</strong> - location embed on the contact page. Subject to Google's privacy policy.</span></li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Vercel</strong> - website hosting. Standard server logs (IP, timestamp) are retained for up to 30 days.</span></li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Google Maps and WhatsApp</strong> - external links which open those services when selected, subject to their own privacy policies. The optional interactive map loads from Google only after you select it.</span></li>
+              <li className="flex items-start gap-2"><span className="text-primary mt-1">•</span><span><strong className="text-foreground">Vercel</strong> - website hosting and technical request logs.</span></li>
             </ul>
+            <p className="text-muted-foreground leading-relaxed mt-3">For specialist-service enquiries, we may share the necessary project and contact details with the relevant delivery provider to scope or arrange the requested service. Contact us for information about recipients and any international transfers relevant to your enquiry.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-display font-bold text-foreground mb-3">8. Changes to This Policy</h2>
             <p className="text-muted-foreground leading-relaxed">
               We may update this Privacy Policy from time to time. The "last updated" date at the top of this page
-              will reflect any changes. Continued use of our website after changes constitutes acceptance of the
-              updated policy.
+              will reflect any changes. A policy update does not itself provide consent to a new use of your data.
             </p>
           </section>
 

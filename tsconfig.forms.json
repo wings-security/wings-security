@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "target": "ES2022", "module": "NodeNext", "moduleResolution": "NodeNext", "lib": ["ES2022", "DOM"], "types": ["node"], "strict": true, "skipLibCheck": true, "outDir": ".forms-build", "rootDir": "." },
+  "include": ["server/**/*.ts", "api/**/*.ts", "src/data/site.ts", "tests/form-api.integration.ts"]
+}

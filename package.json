@@ -5,10 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run check:forms && vite build && vite build --ssr src/entry-server.tsx --outDir .prerender && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "test:e2e": "playwright test",
+    "preview": "vite preview",
+    "check:forms": "tsc --noEmit -p tsconfig.forms.json && tsc --noEmit -p tsconfig.google-script.json",
+    "build:forms": "tsc -p tsconfig.forms.json && tsc -p tsconfig.google-script.json",
+    "test:forms": "npm run build:forms && node --test .forms-build/tests/form-api.integration.js",
+    "test:secure-forms": "playwright test --config playwright.secure.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -63,6 +68,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",

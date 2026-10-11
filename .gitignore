@@ -10,6 +10,9 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.prerender
+test-results/
+playwright-report/
 *.local
 
 # Editor directories and files
@@ -23,3 +26,7 @@ dist-ssr
 *.sln
 *.sw?
 .env
+.env.*
+!.env.example
+.forms-build/
+.google-script/
